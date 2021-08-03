@@ -1,0 +1,15 @@
+eclipse.preferences.version=1
+encoding//WebContent/Receipt.jsp=UTF-8
+encoding//WebContent/ViewDetailOrder.jsp=UTF-8
+encoding//WebContent/addProduct.jsp=UTF-8
+encoding//WebContent/cart.jsp=UTF-8
+encoding//WebContent/listProduct.jsp=UTF-8
+encoding//WebContent/order.jsp=UTF-8
+encoding//WebContent/updatePaymentSupplier.jsp=UTF-8
+encoding//WebContent/updateProduct.jsp=UTF-8
+encoding//WebContent/updatepayment.jsp=UTF-8
+encoding//WebContent/viewOrder.jsp=UTF-8
+encoding//WebContent/viewOrderSupplier.jsp=UTF-8
+encoding//WebContent/viewPayment.jsp=UTF-8
+encoding//WebContent/viewPaymentSupplier.jsp=UTF-8
+encoding//WebContent/viewProduct.jsp=UTF-8
