@@ -1,199 +1,226 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-    <!-- get session -->
-	<% String agentid = (String) session.getAttribute("sessionId");%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> <%@ taglib
+uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
+<!-- get session -->
+<% String agentid = (String) session.getAttribute("sessionId");%>
 
 <!DOCTYPE html>
-<html>
-<title>AGENT MANAGEMENT SYSTEM</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-<style>
-body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
-body {font-size:16px;}
-.w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
-.w3-half img:hover{opacity:1}
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Dashboard - SB Admin</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
+      rel="stylesheet"
+    />
+    <link href="css/styles.css" rel="stylesheet" />
+    <!-- CSS only -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+      <!-- Navbar Brand-->
+      <a class="navbar-brand ps-2 me-5" href="index.html"
+        >Agent Management System</a
+      >
+      <!-- Sidebar Toggle-->
+      <button
+        class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
+        id="sidebarToggle"
+        href="#!"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+      <!-- Navbar Search-->
+      <form
+        class="
+          d-none d-md-inline-block
+          form-inline
+          ms-auto
+          me-0 me-md-3
+          my-2 my-md-0
+        "
+      ></form>
+      <!-- Navbar-->
+      <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            id="navbarDropdown"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            ><i class="fas fa-user fa-fw"></i
+          ></a>
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="navbarDropdown"
+          >
+            <li><a class="dropdown-item" href="ViewAgentForAgentViewController?id=<%= agentid %>">Profile</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" href="LogoutController">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <div id="layoutSidenav">
+      <div id="layoutSidenav_nav">
+        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+          <div class="sb-sidenav-menu">
+            <div class="nav">
+              <div class="sb-sidenav-menu-heading">Agent</div>
+              <a
+                class="nav-link collapsed"
+                href="#"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseLayouts"
+                aria-expanded="false"
+                aria-controls="collapseLayouts"
+              >
+                <div class="sb-nav-link-icon"><i class="fas fa-truck"></i></div>
+                Order
+                <div class="sb-sidenav-collapse-arrow">
+                  <i class="fas fa-angle-down"></i>
+                </div>
+              </a>
+              <div
+                class="collapse"
+                id="collapseLayouts"
+                aria-labelledby="headingOne"
+                data-bs-parent="#sidenavAccordion"
+              >
+                <nav class="sb-sidenav-menu-nested nav">
+                  <a class="nav-link" href="ViewOrderController?id=<%= agentid %>">View Order</a>
+                  <a class="nav-link" href="viewProductController"
+                    >Create Order</a
+                  >
+                  <a class="nav-link" href="cart.jsp"
+                    >View Cart</a
+                  >
+                  <a class="nav-link" href="viewReturnOrderForAgent?id=<%= agentid %>"
+                    >View Return Order</a
+                  >
+                </nav>
+              </div>
+            </div>
+          </div>
 
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-
-.kelas-baru{
-	background-color: pink;
-}
-.footer
-{
-  position:absolute;
-  bottom:0;
-  width:100%;
-  margin-left:100px;
-  text-align:center;
-  left:0;
-}
-</style>
-
-<body>
-
-<!-- Sidenav/menu -->
-<nav class="w3-sidenav w3-collapse w3-top w3-large w3-padding kelas-baru" style="z-index:3;width:300px;font-weight:bold;" id="mySidenav"><br>
-  <a href="javascript:void(0)" onclick="w3_close()" class="w3-padding-xlarge w3-hide-large w3-display-topleft w3-hover-white" style="width:100%;font-size:22px">Close Menu</a>
-  <div class="w3-container">
-      <img height="180px" src="picture/company_logo-removebg-preview.png"/>
-    <h3 class="w3-padding-64"><b><u>AGENT MANAGEMENT SYSTEM</u></b></h3>
-  </div>
- 
-  <a href="ViewOrderController?id=<%= agentid %>" onclick="w3_close()" class="w3-padding w3-hover-white">Home</a>
-  <div class="w3-padding w3-hover-white" onclick="myAccFunc()" style="cursor:pointer">
-  Order <i class="fa fa-caret-down"></i></div>
-  <div id="demoAcc" class="w3-hide w3-blue-pale w3-card-4">
-    <a href="ViewOrderController?id=<%= agentid %>" class="w3-padding w3-hover-white" >View Order</a>
-    <a href="viewProductController">Create Order</a>
-    <a href="cart.jsp" class="w3-padding w3-hover-white" >View Cart</a>
-    <a href="viewReturnOrderForAgent?id=<%= agentid %>" class="w3-padding w3-hover-white" >View Return Order</a>
-    
-
-  </div>
-<div class="w3-padding w3-hover-white" onclick="myAccFunc1()" style="cursor:pointer">
-	Agent <i class="fa fa-caret-down"></i></div>
-  			<div id="demoAcc1" class="w3-hide w3-blue-pale w3-card-4">
-			<a href="ViewAgentForAgentViewController?id=<%= agentid %>" class="w3-padding w3-hover-white" >View Agent</a>
-		</div>
-		<a onclick='confirmationLogout(this);return false;' href="LogoutController" class="w3-padding w3-hover-white">Logout</a>
-</nav>
-
-<!-- Top menu on small screens -->
-<header class="w3-container w3-top w3-hide-large w3-pale-blue w3-xlarge w3-padding">
-  <a href="javascript:void(0)" class="w3-button w3-pale-blue w3-margin-right" onclick="w3_open()">☰</a>
-  <span>AGENT MANAGEMENT SYSTEM</span>
-</header>
-
-<!-- Overlay effect when opening sidenav on small screens -->
-<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
-
-<!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:340px;margin-right:40px">
-
-
-
-  <!-- Header -->
-  <div class="w3-container" style="margin-top:20px" id="home">
-    <h1 class="w3-jumbo"><b>View Order</b></h1>
-    <hr style="width:50px;border:5px solid black" class="w3-round">
-  </div>
-<table>
-  <tr>
-    <th>Order id</th>
-    <th>Order date</th>
-    <th>Order status</th>
-    <th>Payment id</th>
-    <th>Payment status</th>
-    <th>Action</th>
-  </tr>
- <c:forEach items="${od}" var="o">
- <tr> 
- 	<td><a href="ListProductController?id=<c:out value="${o.orderid}" />"><c:out value="${o.orderid}" /></td>
- 	<td><c:out value="${o.orderdate}" /></td>
-    <td><c:out value="${o.orderstatus}" /></td>
-    <td><a href="ViewPaymentController?id=<c:out value="${o.paymentid}" />"><c:out value="${o.paymentid}" /></td>
-	<td><c:out value="${o.paymentstatus}"/></td>
-	<td>
-	<c:if test="${o.paymentstatus.equals('Payment Rejected')}">
-	<a href="DeleteOrderController?id=${o.orderid}&agentid=<%= agentid %>">Delete</a>
-	</c:if>
-	</td>
-</tr>
-</c:forEach>
-</table>
- <!-- Photo grid (modal) 
-	<div class="w3-row-padding">
-		<div class="w3-half">
-		<img src="../pictures/group.jpg" style="width:100%" onclick="onClick(this)" alt="Signature Liberty Hotel">
-		<img src="../pictures/hotel.gif" style="width:100%" onclick="onClick(this)" alt="Hotel.gif">
-		</div>
-    <div class="w3-half">
-		<img src="../pictures/bed.jpg" style="width:100%" onclick="onClick(this)" alt="Bed">
-		<img src="../pictures/toilet.jpg" style="width:100%" onclick="onClick(this)" alt="Kids.jpg">
-    </div></div>
-	
-Modal for full size images on click
-  <div id="modal01" class="w3-modal w3-black w3-padding-0" onclick="this.style.display='none'">
-    <span class="w3-closebtn w3-text-white w3-opacity w3-hover-opacity-off w3-xxlarge w3-container w3-display-topright">×</span>
-    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-      <img id="img01" class="w3-image">
-      <p id="caption"></p>
+          <div class="sb-sidenav-footer">
+            <div class="small">Logged in as: </div>
+           <%= agentid %> <c:out value="${ag.agentname}" />
+          </div>
+        </nav>
+      </div>
+      <div id="layoutSidenav_content">
+        <main>
+          <div class="container-fluid px-4">
+            <h1 class="mt-4">View Order</h1>
+            <ol class="breadcrumb mb-4">
+              <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+            <div class="card mb-4">
+              <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Order Table
+              </div>
+              <div class="card-body">
+                <table id="datatablesSimple">
+                  <thead>
+                    <tr>
+                      <th>ORDER ID</th>
+                      <th>ORDER DATE</th>
+                      <th>ORDER STATUS</th>
+                      <th>PPAYMENT ID</th>
+                      <th>PAYMENT STATUS</th>
+                      <th>ACTION</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <c:forEach items="${od}" var="o">
+                      <tr>
+                        <td>
+                          <a href="ListProductController?id=<c:out
+                            value="${o.orderid}"
+                          />"><c:out value="${o.orderid}" />
+                        </td>
+                        <td><c:out value="${o.orderdate}" /></td>
+                        <td><c:out value="${o.orderstatus}" /></td>
+                        <td>
+                          <a href="ViewPaymentController?id=<c:out
+                            value="${o.paymentid}"
+                          />"><c:out value="${o.paymentid}" />
+                        </td>
+                        <td><c:out value="${o.paymentstatus}" /></td>
+                        <td>
+                          <c:if
+                            test="${o.paymentstatus.equals('Payment Rejected')}"
+                          >
+                            <a
+                              href="DeleteOrderController?id=${o.orderid}&agentid=<%= agentid %>"
+                              >Delete</a
+                            >
+                          </c:if>
+                        </td>
+                      </tr>
+                    </c:forEach>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </main>
+        <footer class="py-4 bg-light mt-auto">
+          <div class="container-fluid px-4">
+            <div
+              class="d-flex align-items-center justify-content-between small"
+            >
+              <div class="text-muted">
+                Copyright &copy; Agent Management System
+              </div>
+              <div>
+                <a href="#">Privacy Policy</a>
+                &middot;
+                <a href="#">Terms &amp; Conditions</a>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
     </div>
-  </div> -->
-
-<!-- W3.CSS Container -->
-<div class="w3-light-grey w3-container w3-padding-8 footer" style="margin-top:45px;padding-right:58px"><p class="w3-right"><p align="center">© 2020 Agent Management System</p>
-
-<script>
-// Script to open and close sidenav
-function w3_open() {
-    document.getElementById("mySidenav").style.display = "block";
-    document.getElementById("myOverlay").style.display = "block";
-}
- 
-function w3_close() {
-    document.getElementById("mySidenav").style.display = "none";
-    document.getElementById("myOverlay").style.display = "none";
-}
-
-// Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
-
-// Accordion
-function myAccFunc() {
-    var x = document.getElementById("demoAcc");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-        x.previousElementSibling.className += " w3-white";
-    } else { 
-        x.className = x.className.replace(" w3-show", "");
-        x.previousElementSibling.className = 
-        x.previousElementSibling.className.replace(" w3-white", "");
-    }
-}
-function myAccFunc1() {
-    var x = document.getElementById("demoAcc1");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-        x.previousElementSibling.className += " w3-white";
-    } else { 
-        x.className = x.className.replace(" w3-show", "");
-        x.previousElementSibling.className = 
-        x.previousElementSibling.className.replace(" w3-white", "");
-    }
-}
-function confirmationLogout(anchor)
-{
-	var conf = confirm('Are you sure want to Logout?');
-	if(conf)
-	window.location=anchor.attr("href");
-}
-</script>
-</div>
-</body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/scripts.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="assets/demo/chart-area-demo.js"></script>
+    <script src="assets/demo/chart-bar-demo.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/datatables-simple-demo.js"></script>
+  </body>
 </html>

@@ -129,6 +129,34 @@
         font-size: 14px;
         color: #919aa3;
       }
+      .alert {
+  padding: 10px;
+  background-color: #f44336;
+  color: white;
+  opacity: 1;
+  transition: opacity 0.6s;
+  margin-bottom: 15px;
+  display:none;
+}
+
+.alert.success {background-color: #04AA6D;}
+.alert.info {background-color: #2196F3;}
+.alert.warning {background-color: #ff9800;}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
 
       /*# sourceMappingURL=login.css.map */
     </style>
@@ -179,6 +207,10 @@
                     value="Login"
                   />
                 </form>
+                <div class="alert">
+  <span class="closebtn">&times;</span>  
+  <strong>Warning!</strong>  You have entered the wrong username or password
+</div>
                 <a href="#!" class="forgot-password-link">Forgot password?</a>
                 <p class="login-card-footer-text">
                   <a href="#!" class="text-reset"></a>
@@ -222,5 +254,15 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script>
+    var close = document.getElementsByClassName("closebtn");
+    setTimeOut(function(){
+ 
+    	if(${login == 'false'}){
+       	 close.style.display = 'block'
+       	}   
+    },10000)
+   
+    </script>
   </body>
 </html>

@@ -56,7 +56,7 @@ public class LoginSupplierController extends HttpServlet {
 			//redirect to invalidLoggin.jsp if user is not valid
 			else{
 				System.out.println("Incorrect id or password");
-				response.sendRedirect("invalidLogin.jsp");
+				response.sendRedirect("loginSupplier.jsp");
 			}		
 		}
 
