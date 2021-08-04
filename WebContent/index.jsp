@@ -272,7 +272,7 @@
           <h1 data-text="Agent Management System">Agent Management System</h1>
           <div class="row">
             <a href="login.jsp" style="text-decoration: none;" class="rainbow rainbow-1">Agent</a>
-            <a herf="LoginSupplier.jsp" style="text-decoration: none;" class="rainbow rainbow-2">Supplier</a>
+            <a href="LoginSupplier.jsp" style="text-decoration: none;" class="rainbow rainbow-2">Supplier</a>
           </div>
         </div>
       </div>

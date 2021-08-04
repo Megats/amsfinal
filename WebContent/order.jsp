@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
+
  	<!-- get session -->
 	<% String agentid = (String) session.getAttribute("sessionId");%>
 <!DOCTYPE html>
@@ -28,7 +29,8 @@
 			    display:flex;
 			    align-items:center;
 			    text-align:center;
-			    padding-bottom:20px;
+			    padding-bottom:30px;
+			    flex-direction:column;
 			}
 			
 			.btn-info {
@@ -65,8 +67,7 @@ border-color:black;
             }
             .item-caption {
                 margin: 5px 5px;
-                height: 25px;
-                font-size: 20px;
+                font-size: 1.1vw;
                 color: black;
             }
             .item-caption-2 {
@@ -85,7 +86,7 @@ border-color:black;
             }
             .card-border {
                 margin: 10px;
-                padding: 10px;
+                padding: 5%;
                 height: 450px;
                 border-radius: 10px;
             }
@@ -204,7 +205,7 @@ border-color:black;
                                                         <div class="item-caption">                                                           
                                                             <b><c:out value="${p.productName}"/></b>
                                                         </div>
-                                                        <div class="item-price">RM<c:out value="${p.productPrice}"/></div>
+                                                        <div class="item-price">RM<fmt:formatNumber type="number" maxFractionDigits="2" minFractionDigits="2" value="${p.productPrice}"/></div>
                                                         <br>
                                                         <div class="item-caption-2">Type: <i><c:out value="${p.productType}"/></i>
                                                         <br>  
