@@ -10,6 +10,64 @@
 <!DOCTYPE html>
 <html>
 <title>AGENT MANAGEMENT SYSTEM</title>
+<head>
+<script>
+window.onload = function() {
+
+	var request = new XMLHttpRequest();
+	request.open("GET", "https://microservicess.herokuapp.com/", true);
+	request.onload = function() {
+	    var order = JSON.parse(this.response);
+	    var col = [];
+	    for (var i = 0; i < order.length; i++) {
+	        for (var key in order[i]) {
+	            if (col.indexOf(key) === -1) {
+	                col.push(key);
+	            }
+	        }
+	    }
+
+	    // CREATE DYNAMIC TABLE.
+	    var table = document.createElement("table");
+
+	    // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
+
+	    var tr = table.insertRow(-1);                   // TABLE ROW.
+
+	    for (var i = 0; i < col.length; i++) {
+	        var th = document.createElement("th");      // TABLE HEADER.
+	        th.innerHTML = col[i];
+	        tr.appendChild(th);
+	    }
+
+	    // ADD JSON DATA TO THE TABLE AS ROWS.
+	    for (var i = 0; i < order.length; i++) {
+
+	        tr = table.insertRow(-1);
+
+	        for (var j = 0; j < col.length; j++) {
+	            var tabCell = tr.insertCell(-1);
+	            if(j==0) {
+	              var a = document.createElement("a");
+	              a.href = "ViewDetailOrderController?id="+order[i][col[j]];
+	              a.innerHTML = order[i][col[j]];
+	              tabCell.appendChild(a);
+	            }
+	            else {
+	              tabCell.innerHTML = order[i][col[j]];
+	            }
+	        }
+	    }
+
+	    // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
+	    var divContainer = document.getElementById("showData");
+	    divContainer.innerHTML = "";
+	    divContainer.appendChild(table);
+	}
+	request.send();
+	}
+</script>
+</head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/w3.css">
@@ -172,46 +230,9 @@ tr:nth-child(even) {
     <hr style="width:50px;border:5px solid black" class="w3-round">
   </div>
 <h2>Current Order:</h2>
-<%=supplierposition %>
-<table>
-  <tr>
-    <th>ORDER ID</th>
-    <th>ORDER STATUS</th>
-    <th>ORDER DATE</th>
-    <th>AGENT ID</th>
-  </tr>
- <c:forEach items="${od}" var="o">
-<input type="hidden" name="orderid" value='<c:out value="${o.orderid}" />'>
- <tr>
- 	<td><a href="ViewDetailOrderController?id=<c:out value="${o.orderid}" />"><c:out value="${o.orderid}" /></a></td>
- 	<td><c:out value="${o.orderstatus}" /></td>
-    <td><c:out value="${o.orderdate}" /></td>
-    <td><c:out value="${o.agentid}" /></td>
-</tr>
-</c:forEach>
-</table>
- <!-- Photo grid (modal) 
-	<div class="w3-row-padding">
-		<div class="w3-half">
-		<img src="../pictures/group.jpg" style="width:100%" onclick="onClick(this)" alt="Signature Liberty Hotel">
-		<img src="../pictures/hotel.gif" style="width:100%" onclick="onClick(this)" alt="Hotel.gif">
-		</div>
-    <div class="w3-half">
-		<img src="../pictures/bed.jpg" style="width:100%" onclick="onClick(this)" alt="Bed">
-		<img src="../pictures/toilet.jpg" style="width:100%" onclick="onClick(this)" alt="Kids.jpg">
-    </div></div>
-	
-Modal for full size images on click
-  <div id="modal01" class="w3-modal w3-black w3-padding-0" onclick="this.style.display='none'">
-    <span class="w3-closebtn w3-text-white w3-opacity w3-hover-opacity-off w3-xxlarge w3-container w3-display-topright">×</span>
-    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-      <img id="img01" class="w3-image">
-      <p id="caption"></p>
-    </div>
-  </div> -->
-
+<p id="showData"></p>
 <!-- W3.CSS Container -->
-<div class="w3-light-grey w3-container w3-padding-8 footer" style="margin-top:45px;padding-right:58px"><p class="w3-right"><p align="center">© 2020 Agent Management System</p>
+<div class="w3-light-grey w3-container w3-padding-8" style="margin-top:45px;padding-right:58px"><p class="w3-right"><p align="center">© 2020 Agent Management System</p>
 
 <script>
 // Script to open and close sidenav
