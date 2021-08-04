@@ -51,15 +51,12 @@ public class LoginController extends HttpServlet {
 		        request.setAttribute("od", OrderDAO.getAllOrdered(agent.getAgentid()));
 				RequestDispatcher view = request.getRequestDispatcher("viewOrder.jsp");
 		        view.forward(request, response);		
-		        
 			}
 			//redirect to invalidLoggin.jsp if user is not valid
 			else{
 				System.out.println("Incorrect id or password");
-				request.setAttribute("login",false);
 				RequestDispatcher view = request.getRequestDispatcher("login.jsp");
-		        view.forward(request, response);	
-		        
+				view.forward(request, response);	
 			}		
 		}
 
@@ -69,8 +66,3 @@ public class LoginController extends HttpServlet {
 		}
 	}
 }
-
-	
-	
-
-

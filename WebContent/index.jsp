@@ -19,985 +19,749 @@
     />
 
     <style>
-      body {
-        font-family: "Karla", sans-serif;
-        min-height: 100vh;
-      }
+            body {
+              font-family: "Karla", sans-serif;
 
-     
-      .login-card {
-        border: 0;
-        border-radius: 27.5px;
-        box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43);
-        overflow: hidden;
-        padding:50px;
-        display: flex;
-        justify-content: center;
-        text-align: center;
-        align-items: center;
-        position: relative;
-      }
-      .login-card h1
-      {
-          margin-top: 10px;
-          margin-bottom: 30px;
-          font-weight: 600;
-      }
-      
-      .login-card .card-body {
-        padding: 75px 60px 60px;
-      }
-      @media (max-width: 422px) {
-        .login-card .card-body {
-          padding: 35px 24px;
-        }
-      }
-      
-      @media (max-width: 767px) {
-        .login-card-footer-text {
-          margin-bottom: 24px;
-        }
-      }
-    
-      .a {
-        color: #e7484f;
-      }
-      .b {
-        color: #f68b1d;
-      }
-      .c {
-        color: #fced00;
-      }
-      .d {
-        color: #009e4f;
-      }
-      .e {
-        color: #00aac3;
-      }
-      .f {
-        color: #732982;
-      }
+              min-height: 100vh;
+            }
 
-    
-      .text-center {
-        text-align: center;
-      }
 
-      .rainbow {
-        background-color: #343a40;
-        border-radius: 4px;
-        color: #fff;
-        cursor: pointer;
-        padding: 8px 16px;
-      }
+            .login-card {
+              border: 0;
+              border-radius: 27.5px;
+              overflow: hidden;
+              padding:50px;
+              display: flex;
+              justify-content: center;
+              text-align: center;
+              align-items: center;
+              position: relative;
+              background: rgba( 255, 255, 255, 0.25 );
+              box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+               backdrop-filter: blur( 4px );
+              -webkit-backdrop-filter: blur( 4px );
+              border-radius: 10px;
+              border: 1px solid rgba( 255, 255, 255, 0.18 );
 
-      .rainbow-1:hover {
-        background-image: linear-gradient(
-          90deg,
-          #00c0ff 0%,
-          #ffcf00 49%,
-          #fc4f4f 80%,
-          #00c0ff 100%
-        );
-        animation: slidebg 5s linear infinite;
-      }
+            }
+            .login-card h1
+            {
+                margin-top: 10px;
+                margin-bottom: 30px;
+                font-weight: 600;
+            }
 
-      .rainbow-2:hover {
-        background-image: linear-gradient(
-          to right,
-          red,
-          orange,
-          yellow,
-          green,
-          blue,
-          indigo,
-          violet,
-          red
-        );
-        animation: slidebg 2s linear infinite;
-      }
+            .login-card .card-body {
+              padding: 75px 60px 60px;
+            }
+            @media (max-width: 422px) {
+              .login-card .card-body {
+                padding: 35px 24px;
+              }
+            }
 
-      .rainbow-3:hover {
-        background-image: linear-gradient(
-          to right,
-          red,
-          orange,
-          yellow,
-          green,
-          blue,
-          indigo,
-          red
-        );
-        animation: slidebg 2s linear infinite;
-      }
+            @media (max-width: 767px) {
+              .login-card-footer-text {
+                margin-bottom: 24px;
+              }
+            }
 
-      .rainbow-4:hover {
-        background-image: linear-gradient(
-          to right,
-          #e7484f,
-          #f68b1d,
-          #fced00,
-          #009e4f,
-          #00aac3,
-          #732982
-        );
-        animation: slidebg 2s linear infinite;
-      }
+            .a {
+              color: #e7484f;
+            }
+            .b {
+              color: #f68b1d;
+            }
+            .c {
+              color: #fced00;
+            }
+            .d {
+              color: #009e4f;
+            }
+            .e {
+              color: #00aac3;
+            }
+            .f {
+              color: #732982;
+            }
 
-      .rainbow-5:hover {
-        background-image: linear-gradient(
-          to right,
-          #e7484f,
-          #e7484f 16.65%,
-          #f68b1d 16.65%,
-          #f68b1d 33.3%,
-          #fced00 33.3%,
-          #fced00 49.95%,
-          #009e4f 49.95%,
-          #009e4f 66.6%,
-          #00aac3 66.6%,
-          #00aac3 83.25%,
-          #732982 83.25%,
-          #732982 100%,
-          #e7484f 100%
-        );
-        animation: slidebg 2s linear infinite;
-      }
 
-      @keyframes slidebg {
-        to {
-          background-position: 20vw;
-        }
-      }
+            .text-center {
+              text-align: center;
+            }
 
-      .follow {
-        margin-top: 40px;
-      }
+            .rainbow {
+              background-color: #343a40;
+              border-radius: 4px;
+              color: #fff;
+              cursor: pointer;
+              padding: 8px 16px;
+            }
 
-      .follow a {
-        color: black;
-        padding: 8px 16px;
-        text-decoration: none;
-      }
-      
-a:hover{
+            .rainbow-1:hover {
+              background-image: linear-gradient(
+                90deg,
+                #00c0ff 0%,
+                #ffcf00 49%,
+                #fc4f4f 80%,
+                #00c0ff 100%
+              );
+              animation: slidebg 5s linear infinite;
+            }
 
-	color:white;
-}
+            .rainbow-2:hover {
+              background-image: linear-gradient(
+                to right,
+                red,
+                orange,
+                yellow,
+                green,
+                blue,
+                indigo,
+                violet,
+                red
+              );
+              animation: slidebg 2s linear infinite;
+            }
 
-      a
-      {
-          padding:30px;
-          margin-right: 20px;
-          font-size: 20px;
-          color:white;
+            .rainbow-3:hover {
+              background-image: linear-gradient(
+                to right,
+                red,
+                orange,
+                yellow,
+                green,
+                blue,
+                indigo,
+                red
+              );
+              animation: slidebg 2s linear infinite;
+            }
+
+            .rainbow-4:hover {
+              background-image: linear-gradient(
+                to right,
+                #e7484f,
+                #f68b1d,
+                #fced00,
+                #009e4f,
+                #00aac3,
+                #732982
+              );
+              animation: slidebg 2s linear infinite;
+            }
+
+            .rainbow-5:hover {
+              background-image: linear-gradient(
+                to right,
+                #e7484f,
+                #e7484f 16.65%,
+                #f68b1d 16.65%,
+                #f68b1d 33.3%,
+                #fced00 33.3%,
+                #fced00 49.95%,
+                #009e4f 49.95%,
+                #009e4f 66.6%,
+                #00aac3 66.6%,
+                #00aac3 83.25%,
+                #732982 83.25%,
+                #732982 100%,
+                #e7484f 100%
+              );
+              animation: slidebg 2s linear infinite;
+            }
+
+            @keyframes slidebg {
+              to {
+                background-position: 20vw;
+              }
+            }
+
+            .follow {
+              margin-top: 40px;
+            }
+
+            .follow a {
+              color: black;
+              padding: 8px 16px;
+              text-decoration: none;
+            }
+
+            a
+            {
+                padding:30px;
+                margin-right: 20px;
+                font-size: 20px;
+                color:white;
+            }
+            a:not([href]) {
+          color: white !important;
           text-decoration: none;
       }
-      a:not([href]) {
-    color: white !important;
-    text-decoration: none;
-}
-@media (min-width: 1200px)
-{
-    .container, .container-lg, .container-md, .container-sm, .container-xl {
-    max-width: 720px !important;
-}  
-}
-
-.particle {
-  position: absolute;
-  border-radius: 50%;
-}
-
-@-webkit-keyframes particle-animation-1 {
-  100% {
-    transform: translate3d(90vw, 70vh, 51px);
-  }
-}
-
-@keyframes particle-animation-1 {
-  100% {
-    transform: translate3d(90vw, 70vh, 51px);
-  }
-}
-.particle:nth-child(1) {
-  -webkit-animation: particle-animation-1 60s infinite;
-          animation: particle-animation-1 60s infinite;
-  opacity: 0.91;
-  height: 10px;
-  width: 10px;
-  -webkit-animation-delay: -0.2s;
-          animation-delay: -0.2s;
-  transform: translate3d(52vw, 48vh, 83px);
-  background: #26c4d9;
-}
-
-@-webkit-keyframes particle-animation-2 {
-  100% {
-    transform: translate3d(50vw, 74vh, 13px);
-  }
-}
-
-@keyframes particle-animation-2 {
-  100% {
-    transform: translate3d(50vw, 74vh, 13px);
-  }
-}
-.particle:nth-child(2) {
-  -webkit-animation: particle-animation-2 60s infinite;
-          animation: particle-animation-2 60s infinite;
-  opacity: 0.87;
-  height: 7px;
-  width: 7px;
-  -webkit-animation-delay: -0.4s;
-          animation-delay: -0.4s;
-  transform: translate3d(80vw, 56vh, 4px);
-  background: #26d9a9;
-}
-
-@-webkit-keyframes particle-animation-3 {
-  100% {
-    transform: translate3d(89vw, 45vh, 46px);
-  }
-}
-
-@keyframes particle-animation-3 {
-  100% {
-    transform: translate3d(89vw, 45vh, 46px);
-  }
-}
-.particle:nth-child(3) {
-  -webkit-animation: particle-animation-3 60s infinite;
-          animation: particle-animation-3 60s infinite;
-  opacity: 0.4;
-  height: 10px;
-  width: 10px;
-  -webkit-animation-delay: -0.6s;
-          animation-delay: -0.6s;
-  transform: translate3d(46vw, 11vh, 8px);
-  background: #8e26d9;
-}
-
-@-webkit-keyframes particle-animation-4 {
-  100% {
-    transform: translate3d(10vw, 48vh, 61px);
-  }
-}
-
-@keyframes particle-animation-4 {
-  100% {
-    transform: translate3d(10vw, 48vh, 61px);
-  }
-}
-.particle:nth-child(4) {
-  -webkit-animation: particle-animation-4 60s infinite;
-          animation: particle-animation-4 60s infinite;
-  opacity: 0.96;
-  height: 8px;
-  width: 8px;
-  -webkit-animation-delay: -0.8s;
-          animation-delay: -0.8s;
-  transform: translate3d(29vw, 75vh, 94px);
-  background: #2674d9;
-}
-
-@-webkit-keyframes particle-animation-5 {
-  100% {
-    transform: translate3d(8vw, 58vh, 83px);
-  }
-}
-
-@keyframes particle-animation-5 {
-  100% {
-    transform: translate3d(8vw, 58vh, 83px);
-  }
-}
-.particle:nth-child(5) {
-  -webkit-animation: particle-animation-5 60s infinite;
-          animation: particle-animation-5 60s infinite;
-  opacity: 0.11;
-  height: 8px;
-  width: 8px;
-  -webkit-animation-delay: -1s;
-          animation-delay: -1s;
-  transform: translate3d(25vw, 26vh, 45px);
-  background: #d95326;
-}
-
-@-webkit-keyframes particle-animation-6 {
-  100% {
-    transform: translate3d(88vw, 41vh, 6px);
-  }
-}
-
-@keyframes particle-animation-6 {
-  100% {
-    transform: translate3d(88vw, 41vh, 6px);
-  }
-}
-.particle:nth-child(6) {
-  -webkit-animation: particle-animation-6 60s infinite;
-          animation: particle-animation-6 60s infinite;
-  opacity: 0.3;
-  height: 8px;
-  width: 8px;
-  -webkit-animation-delay: -1.2s;
-          animation-delay: -1.2s;
-  transform: translate3d(8vw, 23vh, 91px);
-  background: #d97426;
-}
-
-@-webkit-keyframes particle-animation-7 {
-  100% {
-    transform: translate3d(27vw, 32vh, 54px);
-  }
-}
-
-@keyframes particle-animation-7 {
-  100% {
-    transform: translate3d(27vw, 32vh, 54px);
-  }
-}
-.particle:nth-child(7) {
-  -webkit-animation: particle-animation-7 60s infinite;
-          animation: particle-animation-7 60s infinite;
-  opacity: 0.94;
-  height: 9px;
-  width: 9px;
-  -webkit-animation-delay: -1.4s;
-          animation-delay: -1.4s;
-  transform: translate3d(14vw, 8vh, 24px);
-  background: #2656d9;
-}
-
-@-webkit-keyframes particle-animation-8 {
-  100% {
-    transform: translate3d(72vw, 17vh, 44px);
-  }
-}
-
-@keyframes particle-animation-8 {
-  100% {
-    transform: translate3d(72vw, 17vh, 44px);
-  }
-}
-.particle:nth-child(8) {
-  -webkit-animation: particle-animation-8 60s infinite;
-          animation: particle-animation-8 60s infinite;
-  opacity: 0.48;
-  height: 9px;
-  width: 9px;
-  -webkit-animation-delay: -1.6s;
-          animation-delay: -1.6s;
-  transform: translate3d(33vw, 26vh, 35px);
-  background: #269dd9;
-}
-
-@-webkit-keyframes particle-animation-9 {
-  100% {
-    transform: translate3d(49vw, 51vh, 11px);
-  }
-}
-
-@keyframes particle-animation-9 {
-  100% {
-    transform: translate3d(49vw, 51vh, 11px);
-  }
-}
-.particle:nth-child(9) {
-  -webkit-animation: particle-animation-9 60s infinite;
-          animation: particle-animation-9 60s infinite;
-  opacity: 0.44;
-  height: 7px;
-  width: 7px;
-  -webkit-animation-delay: -1.8s;
-          animation-delay: -1.8s;
-  transform: translate3d(22vw, 36vh, 84px);
-  background: #2682d9;
-}
-
-@-webkit-keyframes particle-animation-10 {
-  100% {
-    transform: translate3d(11vw, 82vh, 19px);
-  }
-}
-
-@keyframes particle-animation-10 {
-  100% {
-    transform: translate3d(11vw, 82vh, 19px);
-  }
-}
-.particle:nth-child(10) {
-  -webkit-animation: particle-animation-10 60s infinite;
-          animation: particle-animation-10 60s infinite;
-  opacity: 0.81;
-  height: 6px;
-  width: 6px;
-  -webkit-animation-delay: -2s;
-          animation-delay: -2s;
-  transform: translate3d(27vw, 14vh, 12px);
-  background: #26d974;
-}
-
-@-webkit-keyframes particle-animation-11 {
-  100% {
-    transform: translate3d(84vw, 20vh, 54px);
-  }
-}
-
-@keyframes particle-animation-11 {
-  100% {
-    transform: translate3d(84vw, 20vh, 54px);
-  }
-}
-.particle:nth-child(11) {
-  -webkit-animation: particle-animation-11 60s infinite;
-          animation: particle-animation-11 60s infinite;
-  opacity: 0.67;
-  height: 8px;
-  width: 8px;
-  -webkit-animation-delay: -2.2s;
-          animation-delay: -2.2s;
-  transform: translate3d(86vw, 34vh, 97px);
-  background: #bb26d9;
-}
-
-@-webkit-keyframes particle-animation-12 {
-  100% {
-    transform: translate3d(75vw, 37vh, 84px);
-  }
-}
-
-@keyframes particle-animation-12 {
-  100% {
-    transform: translate3d(75vw, 37vh, 84px);
-  }
-}
-.particle:nth-child(12) {
-  -webkit-animation: particle-animation-12 60s infinite;
-          animation: particle-animation-12 60s infinite;
-  opacity: 0.28;
-  height: 10px;
-  width: 10px;
-  -webkit-animation-delay: -2.4s;
-          animation-delay: -2.4s;
-  transform: translate3d(80vw, 9vh, 89px);
-  background: #8826d9;
-}
-
-@-webkit-keyframes particle-animation-13 {
-  100% {
-    transform: translate3d(65vw, 28vh, 73px);
-  }
-}
-
-@keyframes particle-animation-13 {
-  100% {
-    transform: translate3d(65vw, 28vh, 73px);
-  }
-}
-.particle:nth-child(13) {
-  -webkit-animation: particle-animation-13 60s infinite;
-          animation: particle-animation-13 60s infinite;
-  opacity: 0.92;
-  height: 7px;
-  width: 7px;
-  -webkit-animation-delay: -2.6s;
-          animation-delay: -2.6s;
-  transform: translate3d(46vw, 87vh, 78px);
-  background: #d92674;
-}
-
-@-webkit-keyframes particle-animation-14 {
-  100% {
-    transform: translate3d(54vw, 11vh, 35px);
-  }
-}
-
-@keyframes particle-animation-14 {
-  100% {
-    transform: translate3d(54vw, 11vh, 35px);
-  }
-}
-.particle:nth-child(14) {
-  -webkit-animation: particle-animation-14 60s infinite;
-          animation: particle-animation-14 60s infinite;
-  opacity: 0.81;
-  height: 10px;
-  width: 10px;
-  -webkit-animation-delay: -2.8s;
-          animation-delay: -2.8s;
-  transform: translate3d(53vw, 68vh, 46px);
-  background: #d926a0;
-}
-
-@-webkit-keyframes particle-animation-15 {
-  100% {
-    transform: translate3d(1vw, 16vh, 88px);
-  }
-}
-
-@keyframes particle-animation-15 {
-  100% {
-    transform: translate3d(1vw, 16vh, 88px);
-  }
-}
-.particle:nth-child(15) {
-  -webkit-animation: particle-animation-15 60s infinite;
-          animation: particle-animation-15 60s infinite;
-  opacity: 0.29;
-  height: 10px;
-  width: 10px;
-  -webkit-animation-delay: -3s;
-          animation-delay: -3s;
-  transform: translate3d(23vw, 3vh, 71px);
-  background: #26a9d9;
-}
-
-@-webkit-keyframes particle-animation-16 {
-  100% {
-    transform: translate3d(59vw, 68vh, 87px);
-  }
-}
-
-@keyframes particle-animation-16 {
-  100% {
-    transform: translate3d(59vw, 68vh, 87px);
-  }
-}
-.particle:nth-child(16) {
-  -webkit-animation: particle-animation-16 60s infinite;
-          animation: particle-animation-16 60s infinite;
-  opacity: 0.18;
-  height: 7px;
-  width: 7px;
-  -webkit-animation-delay: -3.2s;
-          animation-delay: -3.2s;
-  transform: translate3d(15vw, 2vh, 65px);
-  background: #d9265c;
-}
-
-@-webkit-keyframes particle-animation-17 {
-  100% {
-    transform: translate3d(47vw, 39vh, 55px);
-  }
-}
-
-@keyframes particle-animation-17 {
-  100% {
-    transform: translate3d(47vw, 39vh, 55px);
-  }
-}
-.particle:nth-child(17) {
-  -webkit-animation: particle-animation-17 60s infinite;
-          animation: particle-animation-17 60s infinite;
-  opacity: 0.58;
-  height: 10px;
-  width: 10px;
-  -webkit-animation-delay: -3.4s;
-          animation-delay: -3.4s;
-  transform: translate3d(84vw, 5vh, 30px);
-  background: #26d6d9;
-}
-
-@-webkit-keyframes particle-animation-18 {
-  100% {
-    transform: translate3d(3vw, 4vh, 64px);
-  }
-}
-
-@keyframes particle-animation-18 {
-  100% {
-    transform: translate3d(3vw, 4vh, 64px);
-  }
-}
-.particle:nth-child(18) {
-  -webkit-animation: particle-animation-18 60s infinite;
-          animation: particle-animation-18 60s infinite;
-  opacity: 0.3;
-  height: 10px;
-  width: 10px;
-  -webkit-animation-delay: -3.6s;
-          animation-delay: -3.6s;
-  transform: translate3d(47vw, 2vh, 55px);
-  background: #5926d9;
-}
-
-@-webkit-keyframes particle-animation-19 {
-  100% {
-    transform: translate3d(6vw, 40vh, 33px);
-  }
-}
-
-@keyframes particle-animation-19 {
-  100% {
-    transform: translate3d(6vw, 40vh, 33px);
-  }
-}
-.particle:nth-child(19) {
-  -webkit-animation: particle-animation-19 60s infinite;
-          animation: particle-animation-19 60s infinite;
-  opacity: 0.07;
-  height: 7px;
-  width: 7px;
-  -webkit-animation-delay: -3.8s;
-          animation-delay: -3.8s;
-  transform: translate3d(23vw, 58vh, 90px);
-  background: #d926a3;
-}
-
-@-webkit-keyframes particle-animation-20 {
-  100% {
-    transform: translate3d(50vw, 35vh, 35px);
-  }
-}
-
-@keyframes particle-animation-20 {
-  100% {
-    transform: translate3d(50vw, 35vh, 35px);
-  }
-}
-.particle:nth-child(20) {
-  -webkit-animation: particle-animation-20 60s infinite;
-          animation: particle-animation-20 60s infinite;
-  opacity: 1;
-  height: 10px;
-  width: 10px;
-  -webkit-animation-delay: -4s;
-          animation-delay: -4s;
-  transform: translate3d(25vw, 63vh, 81px);
-  background: #32d926;
-}
-
-@-webkit-keyframes particle-animation-21 {
-  100% {
-    transform: translate3d(32vw, 60vh, 20px);
-  }
-}
-
-@keyframes particle-animation-21 {
-  100% {
-    transform: translate3d(32vw, 60vh, 20px);
-  }
-}
-.particle:nth-child(21) {
-  -webkit-animation: particle-animation-21 60s infinite;
-          animation: particle-animation-21 60s infinite;
-  opacity: 0.54;
-  height: 7px;
-  width: 7px;
-  -webkit-animation-delay: -4.2s;
-          animation-delay: -4.2s;
-  transform: translate3d(47vw, 10vh, 75px);
-  background: #7d26d9;
-}
-
-@-webkit-keyframes particle-animation-22 {
-  100% {
-    transform: translate3d(10vw, 21vh, 66px);
-  }
-}
-
-@keyframes particle-animation-22 {
-  100% {
-    transform: translate3d(10vw, 21vh, 66px);
-  }
-}
-.particle:nth-child(22) {
-  -webkit-animation: particle-animation-22 60s infinite;
-          animation: particle-animation-22 60s infinite;
-  opacity: 0.65;
-  height: 10px;
-  width: 10px;
-  -webkit-animation-delay: -4.4s;
-          animation-delay: -4.4s;
-  transform: translate3d(7vw, 81vh, 49px);
-  background: #26d938;
-}
-
-@-webkit-keyframes particle-animation-23 {
-  100% {
-    transform: translate3d(33vw, 77vh, 96px);
-  }
-}
-
-@keyframes particle-animation-23 {
-  100% {
-    transform: translate3d(33vw, 77vh, 96px);
-  }
-}
-.particle:nth-child(23) {
-  -webkit-animation: particle-animation-23 60s infinite;
-          animation: particle-animation-23 60s infinite;
-  opacity: 0.15;
-  height: 9px;
-  width: 9px;
-  -webkit-animation-delay: -4.6s;
-          animation-delay: -4.6s;
-  transform: translate3d(58vw, 28vh, 22px);
-  background: #267dd9;
-}
-
-@-webkit-keyframes particle-animation-24 {
-  100% {
-    transform: translate3d(51vw, 37vh, 7px);
-  }
-}
-
-@keyframes particle-animation-24 {
-  100% {
-    transform: translate3d(51vw, 37vh, 7px);
-  }
-}
-.particle:nth-child(24) {
-  -webkit-animation: particle-animation-24 60s infinite;
-          animation: particle-animation-24 60s infinite;
-  opacity: 0.67;
-  height: 10px;
-  width: 10px;
-  -webkit-animation-delay: -4.8s;
-          animation-delay: -4.8s;
-  transform: translate3d(8vw, 34vh, 32px);
-  background: #d9265c;
-}
-
-@-webkit-keyframes particle-animation-25 {
-  100% {
-    transform: translate3d(33vw, 43vh, 35px);
-  }
-}
-
-@keyframes particle-animation-25 {
-  100% {
-    transform: translate3d(33vw, 43vh, 35px);
-  }
-}
-.particle:nth-child(25) {
-  -webkit-animation: particle-animation-25 60s infinite;
-          animation: particle-animation-25 60s infinite;
-  opacity: 0.54;
-  height: 8px;
-  width: 8px;
-  -webkit-animation-delay: -5s;
-          animation-delay: -5s;
-  transform: translate3d(68vw, 1vh, 83px);
-  background: #d9265f;
-}
-
-@-webkit-keyframes particle-animation-26 {
-  100% {
-    transform: translate3d(31vw, 13vh, 69px);
-  }
-}
-
-@keyframes particle-animation-26 {
-  100% {
-    transform: translate3d(31vw, 13vh, 69px);
-  }
-}
-.particle:nth-child(26) {
-  -webkit-animation: particle-animation-26 60s infinite;
-          animation: particle-animation-26 60s infinite;
-  opacity: 0.51;
-  height: 10px;
-  width: 10px;
-  -webkit-animation-delay: -5.2s;
-          animation-delay: -5.2s;
-  transform: translate3d(6vw, 38vh, 49px);
-  background: #d9267a;
-}
-
-@-webkit-keyframes particle-animation-27 {
-  100% {
-    transform: translate3d(37vw, 11vh, 35px);
-  }
-}
-
-@keyframes particle-animation-27 {
-  100% {
-    transform: translate3d(37vw, 11vh, 35px);
-  }
-}
-.particle:nth-child(27) {
-  -webkit-animation: particle-animation-27 60s infinite;
-          animation: particle-animation-27 60s infinite;
-  opacity: 0.12;
-  height: 7px;
-  width: 7px;
-  -webkit-animation-delay: -5.4s;
-          animation-delay: -5.4s;
-  transform: translate3d(33vw, 23vh, 63px);
-  background: #d97726;
-}
-
-@-webkit-keyframes particle-animation-28 {
-  100% {
-    transform: translate3d(63vw, 23vh, 70px);
-  }
-}
-
-@keyframes particle-animation-28 {
-  100% {
-    transform: translate3d(63vw, 23vh, 70px);
-  }
-}
-.particle:nth-child(28) {
-  -webkit-animation: particle-animation-28 60s infinite;
-          animation: particle-animation-28 60s infinite;
-  opacity: 0.23;
-  height: 9px;
-  width: 9px;
-  -webkit-animation-delay: -5.6s;
-          animation-delay: -5.6s;
-  transform: translate3d(15vw, 3vh, 73px);
-  background: #d026d9;
-}
-
-@-webkit-keyframes particle-animation-29 {
-  100% {
-    transform: translate3d(22vw, 56vh, 98px);
-  }
-}
-
-@keyframes particle-animation-29 {
-  100% {
-    transform: translate3d(22vw, 56vh, 98px);
-  }
-}
-.particle:nth-child(29) {
-  -webkit-animation: particle-animation-29 60s infinite;
-          animation: particle-animation-29 60s infinite;
-  opacity: 0.92;
-  height: 9px;
-  width: 9px;
-  -webkit-animation-delay: -5.8s;
-          animation-delay: -5.8s;
-  transform: translate3d(54vw, 38vh, 73px);
-  background: #d92674;
-}
-
-@-webkit-keyframes particle-animation-30 {
-  100% {
-    transform: translate3d(81vw, 37vh, 93px);
-  }
-}
-
-@keyframes particle-animation-30 {
-  100% {
-    transform: translate3d(81vw, 37vh, 93px);
-  }
-}
-.particle:nth-child(30) {
-  -webkit-animation: particle-animation-30 60s infinite;
-          animation: particle-animation-30 60s infinite;
-  opacity: 0.32;
-  height: 6px;
-  width: 6px;
-  -webkit-animation-delay: -6s;
-          animation-delay: -6s;
-  transform: translate3d(33vw, 41vh, 44px);
-  background: #26d9c4;
-}
-
-h1{
-  font-family: 'Teko', sans-serif;
-  text-transform: uppercase;
-  font-size: 3rem;
-  text-align: center;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-align-items: center;
-  align-items: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  margin: 0;
-  background: white;
-  position: relative;
-  background: white;
-  color: #000;
-}
-
-h1:before{
-  content: attr(data-text);
-  position: absolute;
-  background: linear-gradient(#f70000, #f89200, #f8f501, #038f00,#0168f8, #a200f7);
-  -webkit-background-clip: text;
-  color: transparent;
-  background-size: 100% 90%;
-  line-height: 1.2;
-  clip-path: ellipse(120px 120px at -2.54% -9.25%);
-  animation: swing 5s infinite;
-  animation-direction: alternate;
-}
-
-@keyframes swing{
-  0%{
-     -webkit-clip-path: ellipse(120px 120px at -2.54% -9.25%)
-    clip-path: ellipse(120px 120px at -2.54% -9.25%)
-  }
-  50%{
-    -webkit-clip-path: ellipse(120px 120px at 49.66% 64.36%);
-    clip-path: ellipse(120px 120px at 49.66% 64.36%);
-
-  }
-  100%{
-     -webkit-clip-path: ellipse(120px 120px at 102.62% -1.61%;);
-    clip-path: ellipse(120px 120px at 102.62% -1.61%);
-  }
-}
-
-      /*# sourceMappingURL=login.css.map */
+      @media (min-width: 1200px)
+      {
+          .container, .container-lg, .container-md, .container-sm, .container-xl {
+          max-width: 720px !important;
+      }
+      }
+      h1{
+        font-family: 'Teko', sans-serif;
+        text-transform: uppercase;
+        font-size: 3rem;
+        text-align: center;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        margin: 0;
+
+        position: relative;
+
+        color: #000;
+      
+      }
+
+      h1:before{
+        content: attr(data-text);
+        position: absolute;
+        background: linear-gradient(#0079db, #0079db, #0079db,#0079db,#0079db, #0079db);
+        -webkit-background-clip: text;
+        color: transparent;
+        background-size: 100% 90%;
+        line-height: 1.2;
+        clip-path: ellipse(120px 120px at -2.54% -9.25%);
+        animation: swing 5s infinite;
+        animation-direction: alternate;
+
+      }
+
+      @keyframes swing{
+        0%{
+           -webkit-clip-path: ellipse(120px 120px at -2.54% -9.25%)
+          clip-path: ellipse(120px 120px at -2.54% -9.25%)
+        }
+        50%{
+          -webkit-clip-path: ellipse(120px 120px at 49.66% 64.36%);
+          clip-path: ellipse(120px 120px at 49.66% 64.36%);
+
+        }
+        100%{
+           -webkit-clip-path: ellipse(120px 120px at 102.62% -1.61%;);
+          clip-path: ellipse(120px 120px at 102.62% -1.61%);
+        }
+      }
+      canvas{
+      	position:absolute;
+      	top:0;
+      	left:0;
+        z-index: -5;
+      }
+
+
+            /*# sourceMappingURL=login.css.map */
     </style>
   </head>
   <body>
-  <div id="particle-container">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-    </div>
-  
+    <canvas></canvas>
     <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
       <div class="container">
         <div class="card login-card">
-
-          <img src="picture/company_logo-removebg-preview.png" width="100px" >
-          <h1 data-text="Agent Management System">
-            Agent Management System</h1>
+          <img src="picture/company_logo-removebg-preview.png" width="100px" />
+          <h1 data-text="Agent Management System">Agent Management System</h1>
           <div class="row">
-          <a href="login.jsp" class="rainbow rainbow-5" style="text-decoration: none;">Agent</a>
-          <a href="LoginSupplier.jsp" class="rainbow rainbow-3" style="text-decoration: none;">Supplier</a>
+            <a href="login.jsp" style="text-decoration: none;" class="rainbow rainbow-1">Agent</a>
+            <a herf="LoginSupplier.jsp" style="text-decoration: none;" class="rainbow rainbow-2">Supplier</a>
+          </div>
         </div>
       </div>
     </main>
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script>
+      "use strict";
+
+      var tetrominos = [
+        {
+          // box
+          colors: ["rgb(59,84,165)", "rgb(118,137,196)", "rgb(79,111,182)"],
+          data: [
+            [0, 0, 0, 0],
+            [0, 1, 1, 0],
+            [0, 1, 1, 0],
+            [0, 0, 0, 0],
+          ],
+        },
+        {
+          // stick
+          colors: ["rgb(214,30,60)", "rgb(241,108,107)", "rgb(236,42,75)"],
+          data: [
+            [0, 0, 0, 0],
+            [0, 0, 0, 0],
+            [1, 1, 1, 1],
+            [0, 0, 0, 0],
+          ],
+        },
+        {
+          // z
+          colors: ["rgb(88,178,71)", "rgb(150,204,110)", "rgb(115,191,68)"],
+          data: [
+            [0, 0, 0, 0],
+            [0, 1, 1, 0],
+            [0, 0, 1, 1],
+            [0, 0, 0, 0],
+          ],
+        },
+        {
+          // T
+          colors: ["rgb(62,170,212)", "rgb(120,205,244)", "rgb(54,192,240)"],
+          data: [
+            [0, 0, 0, 0],
+            [0, 1, 1, 1],
+            [0, 0, 1, 0],
+            [0, 0, 0, 0],
+          ],
+        },
+        {
+          // s
+          colors: ["rgb(236,94,36)", "rgb(234,154,84)", "rgb(228,126,37)"],
+          data: [
+            [0, 0, 0, 0],
+            [0, 1, 1, 0],
+            [1, 1, 0, 0],
+            [0, 0, 0, 0],
+          ],
+        },
+        {
+          // backwards L
+          colors: ["rgb(220,159,39)", "rgb(246,197,100)", "rgb(242,181,42)"],
+          data: [
+            [0, 0, 1, 0],
+            [0, 0, 1, 0],
+            [0, 1, 1, 0],
+            [0, 0, 0, 0],
+          ],
+        },
+        {
+          // L
+          colors: ["rgb(158,35,126)", "rgb(193,111,173)", "rgb(179,63,151)"],
+          data: [
+            [0, 1, 0, 0],
+            [0, 1, 0, 0],
+            [0, 1, 1, 0],
+            [0, 0, 0, 0],
+          ],
+        },
+      ];
+
+      var Tetris = function (x, y, width, height) {
+        this.posX = x || 0;
+        this.posY = y || 0;
+
+        this.width = width || window.innerWidth;
+        this.height = height || window.innerHeight;
+
+        this.bgCanvas = document.createElement("canvas");
+        this.fgCanvas = document.createElement("canvas");
+
+        this.bgCanvas.width = this.fgCanvas.width = this.width;
+        this.bgCanvas.height = this.fgCanvas.height = this.height;
+
+        this.bgCtx = this.bgCanvas.getContext("2d");
+        this.fgCtx = this.fgCanvas.getContext("2d");
+
+        this.bgCanvas.style.left = this.posX + "px";
+        this.bgCanvas.style.top = this.posY + "px";
+
+        this.fgCanvas.style.left = this.posX + "px";
+        this.fgCanvas.style.top = this.posY + "px";
+
+        document.body.appendChild(this.bgCanvas);
+        document.body.appendChild(this.fgCanvas);
+        this.init();
+      };
+
+      Tetris.prototype.init = function () {
+        this.curPiece = {
+          data: null,
+          colors: [0, 0, 0],
+          x: 0,
+          y: 0,
+        };
+
+        this.lastMove = Date.now();
+        this.curSpeed = 50 + Math.random() * 50;
+        this.unitSize = 20;
+        this.linesCleared = 0;
+        this.level = 0;
+        this.loseBlock = 0;
+
+        // init the board
+        this.board = [];
+        this.boardWidth = Math.floor(this.width / this.unitSize);
+        this.boardHeight = Math.floor(this.height / this.unitSize);
+
+        var board = this.board,
+          boardWidth = this.boardWidth,
+          boardHeight = this.boardHeight,
+          halfHeight = boardHeight / 2,
+          curPiece = this.curPiece,
+          x = 0,
+          y = 0;
+
+        // init board
+        for (x = 0; x <= boardWidth; x++) {
+          board[x] = [];
+          for (y = 0; y <= boardHeight; y++) {
+            board[x][y] = {
+              data: 0,
+              colors: ["rgb(0,0,0)", "rgb(0,0,0)", "rgb(0,0,0)"],
+            };
+
+            if (Math.random() > 0.15 && y > halfHeight) {
+              board[x][y] = {
+                data: 1,
+                colors:
+                  tetrominos[Math.floor(Math.random() * tetrominos.length)]
+                    .colors,
+              };
+            }
+          }
+        }
+
+        // collapse the board a bit
+        for (x = 0; x <= boardWidth; x++) {
+          for (y = boardHeight - 1; y > -1; y--) {
+            if (board[x][y].data === 0 && y > 0) {
+              for (var yy = y; yy > 0; yy--) {
+                if (board[x][yy - 1].data) {
+                  board[x][yy].data = 1;
+                  board[x][yy].colors = board[x][yy - 1].colors;
+
+                  board[x][yy - 1].data = 0;
+                  board[x][yy - 1].colors = [
+                    "rgb(0,0,0)",
+                    "rgb(0,0,0)",
+                    "rgb(0,0,0)",
+                  ];
+                }
+              }
+            }
+          }
+        }
+
+        var self = this;
+
+        window.addEventListener("keydown", function (e) {
+          switch (e.keyCode) {
+            case 37:
+              if (self.checkMovement(curPiece, -1, 0)) {
+                curPiece.x--;
+              }
+              break;
+            case 39:
+              if (self.checkMovement(curPiece, 1, 0)) {
+                curPiece.x++;
+              }
+              break;
+            case 40:
+              if (self.checkMovement(curPiece, 0, 1)) {
+                curPiece.y++;
+              }
+              break;
+            case 32:
+            case 38:
+              curPiece.data = self.rotateTetrimono(curPiece);
+              break;
+          }
+        });
+
+        // render the board
+        this.checkLines();
+        this.renderBoard();
+
+        // assign the first tetri
+        this.newTetromino();
+        this.update();
+      };
+
+      Tetris.prototype.update = function () {
+        var curPiece = this.curPiece;
+
+        if (!this.checkMovement(curPiece, 0, 1)) {
+          if (curPiece.y < -1) {
+            // you lose
+            this.loseScreen();
+            return true;
+          } else {
+            this.fillBoard(curPiece);
+            this.newTetromino();
+          }
+        } else {
+          if (Date.now() > this.lastMove) {
+            this.lastMove = Date.now() + this.curSpeed;
+            if (this.checkMovement(curPiece, 0, 1)) {
+              curPiece.y++;
+            } else {
+              this.fillBoard(curPiece);
+              this.newTetromino();
+            }
+          }
+        }
+
+        this.render();
+
+        var self = this;
+        requestAnimationFrame(function () {
+          self.update();
+        });
+      };
+
+      // render only the board.
+      Tetris.prototype.renderBoard = function () {
+        var canvas = this.bgCanvas,
+          ctx = this.bgCtx,
+          unitSize = this.unitSize,
+          board = this.board,
+          boardWidth = this.boardWidth,
+          boardHeight = this.boardHeight;
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (var x = 0; x <= boardWidth; x++) {
+          for (var y = 0; y <= boardHeight; y++) {
+            if (board[x][y].data !== 0) {
+              var bX = x * unitSize,
+                bY = y * unitSize;
+
+              ctx.fillStyle = board[x][y].colors[0];
+              ctx.fillRect(bX, bY, unitSize, unitSize);
+
+              ctx.fillStyle = board[x][y].colors[1];
+              ctx.fillRect(bX + 2, bY + 2, unitSize - 4, unitSize - 4);
+
+              ctx.fillStyle = board[x][y].colors[2];
+              ctx.fillRect(bX + 4, bY + 4, unitSize - 8, unitSize - 8);
+            }
+          }
+        }
+      };
+
+      // Render the current active piece
+      Tetris.prototype.render = function () {
+        var canvas = this.fgCanvas,
+          ctx = this.fgCtx,
+          unitSize = this.unitSize,
+          curPiece = this.curPiece;
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        for (var x = 0; x < 4; x++) {
+          for (var y = 0; y < 4; y++) {
+            if (curPiece.data[x][y] === 1) {
+              var xPos = (curPiece.x + x) * unitSize,
+                yPos = (curPiece.y + y) * unitSize;
+
+              if (yPos > -1) {
+                ctx.fillStyle = curPiece.colors[0];
+                ctx.fillRect(xPos, yPos, unitSize, unitSize);
+
+                ctx.fillStyle = curPiece.colors[1];
+                ctx.fillRect(xPos + 2, yPos + 2, unitSize - 4, unitSize - 4);
+
+                ctx.fillStyle = curPiece.colors[2];
+                ctx.fillRect(xPos + 4, yPos + 4, unitSize - 8, unitSize - 8);
+              }
+            }
+          }
+        }
+      };
+
+      // Make sure we can mov where we want.
+      Tetris.prototype.checkMovement = function (curPiece, newX, newY) {
+        var piece = curPiece.data,
+          posX = curPiece.x,
+          posY = curPiece.y,
+          board = this.board,
+          boardWidth = this.boardWidth,
+          boardHeight = this.boardHeight;
+
+        for (var x = 0; x < 4; x++) {
+          for (var y = 0; y < 4; y++) {
+            if (piece[x][y] === 1) {
+              if (!board[posX + x + newX]) {
+                board[posX + x + newX] = [];
+              }
+
+              if (!board[posX + x + newX][y + posY + newY]) {
+                board[posX + x + newX][y + posY + newY] = {
+                  data: 0,
+                };
+              }
+
+              if (
+                posX + x + newX >= boardWidth ||
+                posX + x + newX < 0 ||
+                board[posX + x + newX][y + posY + newY].data == 1
+              ) {
+                return false;
+              }
+
+              if (posY + y + newY > boardHeight) {
+                return false;
+              }
+            }
+          }
+        }
+        return true;
+      };
+
+      // checks for completed lines and clears them
+      Tetris.prototype.checkLines = function () {
+        var board = this.board,
+          boardWidth = this.boardWidth,
+          boardHeight = this.boardHeight,
+          linesCleared = this.linesCleared,
+          level = this.level,
+          y = boardHeight + 1;
+
+        while (y--) {
+          var x = boardWidth,
+            lines = 0;
+
+          while (x--) {
+            if (board[x][y].data === 1) {
+              lines++;
+            }
+          }
+
+          if (lines === boardWidth) {
+            linesCleared++;
+            level = Math.round(linesCleared / 20) * 20;
+
+            var lineY = y;
+            while (lineY) {
+              for (x = 0; x <= boardWidth; x++) {
+                if (lineY - 1 > 0) {
+                  board[x][lineY].data = board[x][lineY - 1].data;
+                  board[x][lineY].colors = board[x][lineY - 1].colors;
+                }
+              }
+              lineY--;
+            }
+            y++;
+          }
+        }
+      };
+
+      // Lose animation
+      Tetris.prototype.loseScreen = function () {
+        var ctx = this.bgCtx,
+          unitSize = this.unitSize,
+          boardWidth = this.boardWidth,
+          boardHeight = this.boardHeight,
+          y = boardHeight - this.loseBlock;
+
+        for (var x = 0; x < boardWidth; x++) {
+          var bX = x * unitSize,
+            bY = y * unitSize;
+
+          ctx.fillStyle = "rgb(80,80,80)";
+          ctx.fillRect(bX, bY, unitSize, unitSize);
+
+          ctx.fillStyle = "rgb(150,150,150)";
+          ctx.fillRect(bX + 2, bY + 2, unitSize - 4, unitSize - 4);
+
+          ctx.fillStyle = "rgb(100,100,100)";
+          ctx.fillRect(bX + 4, bY + 4, unitSize - 8, unitSize - 8);
+        }
+
+        if (this.loseBlock <= boardHeight + 1) {
+          this.loseBlock++;
+
+          var self = this;
+          requestAnimationFrame(function () {
+            self.loseScreen();
+          });
+        } else {
+          this.init();
+        }
+      };
+
+      // adds the piece as part of the board
+      Tetris.prototype.fillBoard = function (curPiece) {
+        var piece = curPiece.data,
+          posX = curPiece.x,
+          posY = curPiece.y,
+          board = this.board;
+
+        for (var x = 0; x < 4; x++) {
+          for (var y = 0; y < 4; y++) {
+            if (piece[x][y] === 1) {
+              board[x + posX][y + posY].data = 1;
+              board[x + posX][y + posY].colors = curPiece.colors;
+            }
+          }
+        }
+
+        this.checkLines();
+        this.renderBoard();
+      };
+
+      // rotate a piece
+      Tetris.prototype.rotateTetrimono = function (curPiece) {
+        var rotated = [];
+
+        for (var x = 0; x < 4; x++) {
+          rotated[x] = [];
+          for (var y = 0; y < 4; y++) {
+            rotated[x][y] = curPiece.data[3 - y][x];
+          }
+        }
+
+        if (
+          !this.checkMovement(
+            {
+              data: rotated,
+              x: curPiece.x,
+              y: curPiece.y,
+            },
+            0,
+            0
+          )
+        ) {
+          rotated = curPiece.data;
+        }
+
+        return rotated;
+      };
+
+      // assign the player a new peice
+      Tetris.prototype.newTetromino = function () {
+        var pieceNum = Math.floor(Math.random() * tetrominos.length),
+          curPiece = this.curPiece;
+
+        curPiece.data = tetrominos[pieceNum].data;
+        curPiece.colors = tetrominos[pieceNum].colors;
+        curPiece.x = Math.floor(
+          Math.random() * (this.boardWidth - curPiece.data.length + 1)
+        );
+        curPiece.y = -4;
+      };
+
+      var width = window.innerWidth,
+        boardDiv = 20 * Math.round(window.innerWidth / 20),
+        boards = 8,
+        bWidth = boardDiv / boards,
+        tetrisInstances = [];
+
+      for (var w = 0; w < boards; w++) {
+        tetrisInstances.push(
+          new Tetris(20 * Math.round((w * bWidth) / 20), 0, bWidth)
+        );
+      }
+    </script>
   </body>
 </html>
