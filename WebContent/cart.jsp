@@ -218,7 +218,7 @@ border-color:black;
                             <th scope="col">PRODUCT NAME</th>
                             <th scope="col"  class="text-center">PRODUCT PRICE (RM)</th>
                             <th scope="col" class="text-center">QUANTITY</th>
-                            <th scope="col" class="text-right">ACTION</th>
+                            <th scope="col" class="text-center">ACTION</th>
                             <th> </th>
                         </tr><c:set var="count" value="0" scope="page" />
                     </thead>
@@ -248,7 +248,7 @@ border-color:black;
 
 							</div>
 			 </td>
-			 <td scope="col" class="text-right"><a href="RemoveCartController?id=${count}" rel="tooltip" class="w3-btn w3-red w3-round-large">Remove</a></td>
+			 <td scope="col" class="text-center"><a href="RemoveCartController?id=${count}" rel="tooltip" class="w3-btn w3-red w3-round-large"><i style="color:red; font-size:20px;" class="fas fa-trash"></i></a></td>
 			 <td></td>
 			  <c:set var="count" value="${count+1}" scope="page"/>
 			  </tr>
@@ -259,7 +259,7 @@ border-color:black;
                             <td></td>
                             
                             <td class="text-right"><strong></strong></td>
-                            <td class="text-right"><strong>Total : RM<fmt:formatNumber type="number" maxFractionDigits="2" minFractionDigits="2" value="${totalprice}"/></strong></td>
+                            <td class="text-center"><strong>Total : RM<fmt:formatNumber type="number" maxFractionDigits="2" minFractionDigits="2" value="${totalprice}"/></strong></td>
                             <td></td>
                         </tr>
                  
