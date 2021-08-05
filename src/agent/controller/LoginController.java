@@ -53,7 +53,9 @@ public class LoginController extends HttpServlet {
 		        view.forward(request, response);		
 			}
 			//redirect to invalidLoggin.jsp if user is not valid
-			else{
+			else
+			{
+				
 				System.out.println("Incorrect id or password");
 				RequestDispatcher view = request.getRequestDispatcher("login.jsp");
 				view.forward(request, response);	

@@ -35,7 +35,7 @@ public class UpdateAgentPersonalInformationController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String agentID = (request.getParameter("id"));
-		request.setAttribute("a", dao.getAgentByid(agentID));
+		request.setAttribute("a", AgentDAO.getAgentByid(agentID));
 		RequestDispatcher view = request.getRequestDispatcher("updateAgentForAgent.jsp");
         view.forward(request, response);
 	}
@@ -46,13 +46,16 @@ public class UpdateAgentPersonalInformationController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		Agent a = new Agent();
-		a.setAgentid(request.getParameter("agentID"));
+		String agentID = request.getParameter("agentID");
+		System.out.println("agent id issssss"+ agentID);
+		a.setAgentid(agentID);
 		a.setAgentname(request.getParameter("agentName"));
 		a.setAgentphoneno(request.getParameter("agentPhoneNo"));
 		a.setAgentaddress(request.getParameter("agentAddress"));
 		a.setAgentemail(request.getParameter("agentEmail"));
 		dao.updateAgentInfo(a);
 		request.setAttribute("success", "Update success");
+		request.setAttribute("a", AgentDAO.getAgentByid(agentID));
 		RequestDispatcher view = request.getRequestDispatcher("updateAgentForAgent.jsp");
         view.forward(request, response);
 

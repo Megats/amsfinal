@@ -11,20 +11,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import cart.model.*;
-import cart.dao.*;
+import cart.dao.CartDAO;
+import cart.model.Cart;
 
 /**
- * Servlet implementation class CustomerAddCartController
+ * Servlet implementation class CustomerBuyNowController
  */
-@WebServlet("/CustomerAddCartController")
-public class CustomerAddCartController extends HttpServlet {
+@WebServlet("/CustomerBuyNowController")
+public class CustomerBuyNowController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CustomerAddCartController() {
+    public CustomerBuyNowController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -67,13 +67,15 @@ public class CustomerAddCartController extends HttpServlet {
 			session.setAttribute("cart", omAA);
 			request.setAttribute("Cart", omAA); 
 			
-			response.sendRedirect("order.jsp");
+			response.sendRedirect("cart.jsp");
 		}
 		else {
 			omA.add(ct);
 			session.setAttribute("cart", omA);
-			response.sendRedirect("order.jsp");
+			response.sendRedirect("cart.jsp");
 		}
-	}		
+	}
+
+	
 
 }

@@ -16,10 +16,20 @@
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
         <!-- CSS only -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<!-- JavaScript Bundle with Popper -->
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+        <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
+      crossorigin="anonymous"
+    ></script>
     <style>
     	.bg-secondary{
 				background-color:white !important;
@@ -110,6 +120,20 @@ border-color:black;
             input[type="search"]:active, input[type="search"]:focus {
                 color: black;
             }
+               .bg-dark
+      {
+        background-color:#212529 !important;
+      }
+       .breadcrumb {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 0 !important;
+    margin-bottom: 1rem;
+    list-style: none;
+    background-color: transparent !important;
+    border-radius: .25rem;
     
     </style>
     </head>
@@ -139,44 +163,27 @@ border-color:black;
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                    <div class="sb-sidenav-menu">
+                  <div class="sb-sidenav-menu">
                         <div class="nav">
-              <div class="sb-sidenav-menu-heading">Agent</div>
-              <a
-                class="nav-link collapsed"
-                href="#"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseLayouts"
-                aria-expanded="false"
-                aria-controls="collapseLayouts"
-              >
-                <div class="sb-nav-link-icon"><i class="fas fa-truck"></i></div>
-                Order
-                <div class="sb-sidenav-collapse-arrow">
-                  <i class="fas fa-angle-down"></i>
-                </div>
-              </a>
-              <div
-                class="collapse"
-                id="collapseLayouts"
-                aria-labelledby="headingOne"
-                data-bs-parent="#sidenavAccordion"
-              >
-                <nav class="sb-sidenav-menu-nested nav">
-                  <a class="nav-link" href="ViewOrderController?id=<%= agentid %>">View Order</a>
-                  <a class="nav-link" href="viewProductController"
-                    >Create Order</a
-                  >
-                  <a class="nav-link" href="cart.jsp"
-                    >View Cart</a
-                  >
-                  <a class="nav-link" href="viewReturnOrderForAgent?id=<%= agentid %>"
-                    >View Return Order</a
-                  >
-                </nav>
-              </div>
-            </div>
-                       
+                            <div class="sb-sidenav-menu-heading">Agent</div>
+                            <a class="nav-link" href="ViewOrderController?id=<%= agentid %>">
+                                <div class="sb-nav-link-icon"><i class="fas fa-truck"></i></div>
+                                View Order
+                            </a>
+                            <a class="nav-link" href="viewProductController">
+                                <div class="sb-nav-link-icon"><i class="fas fa-cubes"></i></div>
+                                Create Order 
+                            </a>
+                            <a class="nav-link" href="cart.jsp">
+                                <div class="sb-nav-link-icon"><i class="fas fa-shopping-cart"></i></div>
+                                View Cart <span class="badge badge-danger ml-2"><c:out value=" ${cart.size()}">  </c:out>  </span>
+                            </a>
+                            <a class="nav-link" href="viewReturnOrderForAgent?id=<%= agentid %>">
+                                <div class="sb-nav-link-icon"><i class="fas fa-exchange-alt"></i></div>
+                                View Return Order
+                            </a>
+    
+                        </div>
                     </div>
                     
                     <div class="sb-sidenav-footer">
@@ -190,7 +197,7 @@ border-color:black;
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">Create Order</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Dashboard</li>
+                            <li class="breadcrumb-item active">Product</li>
                         </ol>
                      <div class="row">
                                     <c:forEach var="p" items="${prod}">
@@ -214,7 +221,9 @@ border-color:black;
                                                         </div>
                                                         <br><br><br>
                                                         <c:if test="${p.productQuantity >= 1}">
-                                                            <a href="CustomerAddCartController?id=${p.productId}"><button class="btn btn-info" onclick="showAlertSuccessfulAdd()">Add To Cart</button></a>
+                                                            <a href="CustomerAddCartController?id=${p.productId}"><button class="btn btn-info" onclick="showAlertSuccessfulAdd()">Buy Now</button></a>
+                                                            <a href="CustomerBuyNowController?id=${p.productId}"><button class="btn btn-info" onclick="showAlertSuccessfulAdd()">Add To Cart</button></a>
+                                                             
                                                         </c:if>
                                                         <c:if test="${p.productQuantity < 1}">
                                                             <center><div class="item-status sold-out">SOLD OUT</div></center>

@@ -258,7 +258,7 @@
     var close = document.getElementsByClassName("closebtn");
     setTimeOut(function(){
  
-    	if(${login == 'false'}){
+    	if(${login == 'invalid'}){
        	 close.style.display = 'block'
        	}   
     },10000)
