@@ -30,6 +30,7 @@
       src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
       crossorigin="anonymous"
     ></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
     <style>
     	.bg-secondary{
 				background-color:white !important;
@@ -134,7 +135,8 @@ border-color:black;
     list-style: none;
     background-color: transparent !important;
     border-radius: .25rem;
-    
+    }
+    .ajs-message.ajs-custom { color: #31708f;  background-color: #d9edf7;  border-color: #31708f; }
     </style>
     </head>
     
@@ -222,7 +224,7 @@ border-color:black;
                                                         <br><br><br>
                                                         <c:if test="${p.productQuantity >= 1}">
                                                             <a href="CustomerBuyNowController?id=${p.productId}"><button class="btn btn-info" onclick="showAlertSuccessfulAdd()">Buy Now</button></a>
-                                                            <a href="CustomerAddCartController?id=${p.productId}"><button class="btn btn-info" onclick="showAlertSuccessfulAdd()">Add To Cart</button></a>
+                                                            <a href="CustomerAddCartController?id=${p.productId}"><button class="btn btn-info" onclick="alert()">Add To Cart</button></a>
                                                              
                                                         </c:if>
                                                         <c:if test="${p.productQuantity < 1}">
@@ -257,6 +259,14 @@ border-color:black;
         <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+       <script>
+       function alert()
+       {
+    	    alertify.notify('Item has been added to your cart', 'custom', 2, function(){console.log('dismissed');});
+       }
+       
+       </script>
     </body>
 </html>
 	
