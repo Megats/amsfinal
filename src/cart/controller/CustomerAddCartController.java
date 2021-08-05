@@ -67,12 +67,12 @@ public class CustomerAddCartController extends HttpServlet {
 			session.setAttribute("cart", omAA);
 			request.setAttribute("Cart", omAA); 
 			
-			response.sendRedirect("order.jsp");
+			response.sendRedirect("viewProductController");
 		}
 		else {
 			omA.add(ct);
 			session.setAttribute("cart", omA);
-			response.sendRedirect("order.jsp");
+			response.sendRedirect("viewProductController");
 		}
 	}		
 

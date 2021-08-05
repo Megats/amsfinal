@@ -221,8 +221,8 @@ border-color:black;
                                                         </div>
                                                         <br><br><br>
                                                         <c:if test="${p.productQuantity >= 1}">
-                                                            <a href="CustomerAddCartController?id=${p.productId}"><button class="btn btn-info" onclick="showAlertSuccessfulAdd()">Buy Now</button></a>
-                                                            <a href="CustomerBuyNowController?id=${p.productId}"><button class="btn btn-info" onclick="showAlertSuccessfulAdd()">Add To Cart</button></a>
+                                                            <a href="CustomerBuyNowController?id=${p.productId}"><button class="btn btn-info" onclick="showAlertSuccessfulAdd()">Buy Now</button></a>
+                                                            <a href="CustomerAddCartController?id=${p.productId}"><button class="btn btn-info" onclick="showAlertSuccessfulAdd()">Add To Cart</button></a>
                                                              
                                                         </c:if>
                                                         <c:if test="${p.productQuantity < 1}">

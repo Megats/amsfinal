@@ -116,7 +116,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
                             </a>
                             <a class="nav-link" href="cart.jsp">
                                 <div class="sb-nav-link-icon"><i class="fas fa-shopping-cart"></i></div>
-                                View Cart
+                                View Cart <span class="badge badge-danger ml-2"><c:out value=" ${cart.size()}">  </c:out>  </span>
                             </a>
                             <a class="nav-link" href="viewReturnOrderForAgent?id=<%= agentid %>">
                                 <div class="sb-nav-link-icon"><i class="fas fa-exchange-alt"></i></div>
