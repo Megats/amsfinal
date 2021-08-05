@@ -136,7 +136,7 @@ border-color:black;
     background-color: transparent !important;
     border-radius: .25rem;
     }
-    .ajs-message.ajs-custom { color: #31708f;  background-color: #d9edf7;  border-color: #31708f; }
+    .ajs-message.ajs-custom { color: white;  background-color: #28a745;  border-color: #31708f; }
     </style>
     </head>
     

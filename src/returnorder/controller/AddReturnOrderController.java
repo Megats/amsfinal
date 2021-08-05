@@ -3,6 +3,7 @@ package returnorder.controller;
 import java.io.IOException;
 import java.io.InputStream;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -65,7 +66,9 @@ public class AddReturnOrderController extends HttpServlet {
 		ro.setOrderId(request.getParameter("orderid"));
 		ro.setProductId(request.getParameter("productid"));
 		dao.addReturnOrder(ro);
+		request.setAttribute("success", "Update success");
 		
-		response.sendRedirect("addReturnOrder.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("addReturnOrder.jsp");
+        view.forward(request, response);
 	}
 }

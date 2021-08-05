@@ -253,16 +253,16 @@ border-color:black;
 			  <c:set var="count" value="${count+1}" scope="page"/>
 			  </tr>
 	</c:forEach>
-	  <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+	 <thead> <tr>
+                            <th></th>
+                            <th></th>
+                            <th></th>
                             
-                            <td class="text-right"><strong></strong></td>
-                            <td class="text-center"><strong>Total : RM<fmt:formatNumber type="number" maxFractionDigits="2" minFractionDigits="2" value="${totalprice}"/></strong></td>
-                            <td></td>
+                            <th class="text-right"><strong></strong></th>
+                            <th class="text-center"><strong>Total : RM<fmt:formatNumber type="number" maxFractionDigits="2" minFractionDigits="2" value="${totalprice}"/></strong></th>
+                            <th></th>
                         </tr>
-                 
+                  </thead>
                     </tbody>
                 </table>
             </div>
@@ -277,10 +277,17 @@ border-color:black;
 	<input type="hidden" name="agentid" value="<%= agentid %>">
 	<input type="hidden" name="orderdate" id="formdate">
 	<input type="hidden" name="totalprice" value="${totalprice}"/>
-                    <button type="submit" class="btn btn-lg btn-block btn-success text-uppercase">Checkout</button>
+	             <c:choose>
+	                <c:when test="${cart.size() == 0 }">
+                    <button type="submit" class="btn btn-lg btn-block btn-success text-uppercase" disabled>Checkout</button>
+                    </c:when>  
+                      <c:otherwise>
+                      <button type="submit" class="btn btn-lg btn-block btn-success text-uppercase" >Checkout</button>
+                      
+                 </c:otherwise>
+                 </c:choose>
                 </div>
             </div>
-           
         </div>
          </form>
     </div>

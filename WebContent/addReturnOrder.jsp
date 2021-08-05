@@ -1,182 +1,368 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-        <!-- get session -->
-	<% String agentid = (String) session.getAttribute("sessionId");%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> <%@ taglib
+uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
+<!-- get session -->
+<% String agentid = (String) session.getAttribute("sessionId");%>
+<% 
+  //prevent Caching of JSP pages
+  response.setHeader("Cache-Control","no-cache");
+  response.setHeader("Cache-Control","no-store");
+  response.setHeader("Pragma","no-cache");
+  response.setDateHeader ("Expires", 0);
+
+  //get the session and check if session is null, redirect to login page
+  if(session.getAttribute("currentSessionUser")==null){
+	  System.out.println("No session");
+      response.sendRedirect("index.jsp");
+  }
+  
+  
+  %> 
+
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>AGENT MANAGEMENT SYSTEM</title>
-<meta charset="ISO-8859-1">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-<style>
-body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
-body {font-size:16px;}
-.w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
-.w3-half img:hover{opacity:1}
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Dashboard - SB Admin</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
+      rel="stylesheet"
+    />
+    <link href="css/styles.css" rel="stylesheet" />
+    <!-- CSS only -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      .bg-secondary {
+        background-color: white !important;
+        box-shadow: 0px 5px 10px #212121;
+        margin-bottom: 20px;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        padding-bottom: 30px;
+        flex-direction: column;
+      }
 
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-.kelas-baru{
-	background-color: pink;
-}
-.footer
-{
-  position:absolute;
-  bottom:0;
-  width:100%;
-  margin-left:100px;
-  text-align:center;
-  left:0;
-}
-
-</style>
-</head>
-<body>
-
-<!-- Sidenav/menu -->
-<nav class="w3-sidenav w3-collapse w3-top w3-large w3-padding kelas-baru" style="z-index:3;width:300px;font-weight:bold;" id="mySidenav"><br>
-  <a href="javascript:void(0)" onclick="w3_close()" class="w3-padding-xlarge w3-hide-large w3-display-topleft w3-hover-white" style="width:100%;font-size:22px">Close Menu</a>
-  <div class="w3-container">
-      <img height="180px" src="picture/company_logo-removebg-preview.png"/>
-    <h3 class="w3-padding-64"><b><u>AGENT MANAGEMENT SYSTEM</u></b></h3>
-  </div>
-  
-  
- <a href="ViewOrderController?id=<%= agentid %>" onclick="w3_close()" class="w3-padding w3-hover-white">Home</a>
-  <div class="w3-padding w3-hover-white" onclick="myAccFunc()" style="cursor:pointer">
-  Order <i class="fa fa-caret-down"></i></div>
-  <div id="demoAcc" class="w3-hide w3-blue-pale w3-card-4">
-    <a href="ViewOrderController?id=<%= agentid %>" class="w3-padding w3-hover-white" >View Order</a>
-    <a href="viewProductController">Create Order</a>
-    <a href="cart.jsp" class="w3-padding w3-hover-white" >View Cart</a>
-    <a href="viewReturnOrderForAgent?id=<%= agentid %>" class="w3-padding w3-hover-white" >View Return Order</a>
-    
-
-  </div>
-<div class="w3-padding w3-hover-white" onclick="myAccFunc1()" style="cursor:pointer">
-	Agent <i class="fa fa-caret-down"></i></div>
-  			<div id="demoAcc1" class="w3-hide w3-blue-pale w3-card-4">
-			<a href="ViewAgentForAgentViewController?id=<%= agentid %>" class="w3-padding w3-hover-white" >View Agent</a>
-		</div>
-		<a onclick='confirmationLogout(this);return false;' href="LogoutController" class="w3-padding w3-hover-white">Logout</a>
-</nav>
-
-
-<!-- Top menu on small screens -->
-<header class="w3-container w3-top w3-hide-large w3-pale-blue w3-xlarge w3-padding">
-  <a href="javascript:void(0)" class="w3-button w3-pale-blue w3-margin-right" onclick="w3_open()">â˜°</a>
-  <span>AGENT MANAGEMENT SYSTEM</span>
-</header>
-
-<!-- Overlay effect when opening sidenav on small screens -->
-<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
-
-<!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:340px;margin-right:40px">
-
-
-
-  <!-- Header -->
-  <div class="w3-container" style="margin-top:20px" id="home">
-    <h1 class="w3-jumbo"><b>Create Return Order</b></h1>
-    <hr style="width:50px;border:5px solid black" class="w3-round">
-  </div>
-
-<fieldset>
-  <legend>Please fill all the field</legend>
-<form action="AddReturnOrderController" method="post" enctype="multipart/form-data">
-	<b>Order id:</b>
-	<c:out value="${c.orderid}"/><br><input type="hidden" name="orderid" value="<c:out value="${c.orderid}"/>">
-	<b>ProductiD:</b>
-	<c:out value="${c.productid}"/><br><br><input type="hidden" name="productid" value="<c:out value="${c.productid}"/>">
-	<p><b>Return order quantity: </b>
-	<input type="number" name="returnOrderQuantity" min="1" max="${c.productquantity}"><br>
-	<p><b>Return order status: </b>
-	<input type="text" name="returnOrderStatus" value="Not approved yet" readonly><br>
-	<p><b>Return order image: </b>
-	<input type="file" name="returnOrderImage"><br>
-	<p><b>Return order description: </b>
-	<input type="text" name="returnOrderDescription"><br>
-
-	<center><input type="submit" value="Submit"></center>
-</form>
-</fieldset>
-</div>
-
-<!-- W3.CSS Container -->
-<div class="w3-light-grey w3-container w3-padding-8 footer" style="margin-top:45px;padding-right:58px"><p class="w3-right"><p align="center">� 2020 Agent Management System</p>
-
-<script>
-// Script to open and close sidenav
-function w3_open() {
-    document.getElementById("mySidenav").style.display = "block";
-    document.getElementById("myOverlay").style.display = "block";
-}
- 
-function w3_close() {
-    document.getElementById("mySidenav").style.display = "none";
-    document.getElementById("myOverlay").style.display = "none";
-}
-
-// Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
-
-// Accordion
-function myAccFunc() {
-    var x = document.getElementById("demoAcc");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-        x.previousElementSibling.className += " w3-white";
-    } else { 
-        x.className = x.className.replace(" w3-show", "");
-        x.previousElementSibling.className = 
-        x.previousElementSibling.className.replace(" w3-white", "");
+      .btn-info {
+        color: white;
+        background-color: black;
+        box-shadow: 0px 5px 10px #212121;
+        border-color: black;
+      }
+      .btn-info:hover {
+        color: black;
+        background-color: white;
+        border-color: black;
+      }
+      .product-sec2 {
+        box-shadow: 0px 10px 15px 0px #d6d6d6;
+        padding: 30px 20px;
+        margin-bottom: 14px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      table.item-list tr td {
+        padding: 20px;
+      }
+      table.search-sec input[type="search"] {
+        width: 400px;
+      }
+      .item-img img {
+        margin: 5px;
+        width: 190px;
+        height: 200px;
+      }
+      .item-caption {
+        margin: 5px 5px;
+        font-size: 1.1vw;
+        color: black;
+      }
+      .item-caption-2 {
+        margin: 5px 5px;
+        height: 5px;
+        font-size: 12px;
+        color: black;
+      }
+      .item-price {
+        height: 10px;
+        padding-top: 0px;
+        font-size: 20px;
+        color: #3fbf48;
+        margin: 10px 5px 0px 5px;
+      }
+      .card-border {
+        margin: 10px;
+        padding: 5%;
+        height: 450px;
+        border-radius: 10px;
+      }
+      .item-status {
+        margin-top: 8px;
+        font-family: "Balsamiq Sans", cursive;
+        border-radius: 4px;
+        padding-top: 8px;
+        border: 1px transparent;
+        width: 100px;
+        height: 35px;
+      }
+      .sold-out {
+        font-size: 15px;
+        color: white;
+        background-color: #de4f35;
+      }
+      ::placeholder {
+        color: black;
+      }
+      input[type="search"]:active,
+      input[type="search"]:focus {
+        color: black;
+      }
+      .label {
+        font-weight: bold;
+      }
+      .bg-dark
+      {
+        background-color:#212529 !important;
+      }
+       .breadcrumb {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 0 !important;
+    margin-bottom: 1rem;
+    list-style: none;
+    background-color: transparent !important;
+    border-radius: .25rem;
     }
-}
-function myAccFunc1() {
-    var x = document.getElementById("demoAcc1");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-        x.previousElementSibling.className += " w3-white";
-    } else { 
-        x.className = x.className.replace(" w3-show", "");
-        x.previousElementSibling.className = 
-        x.previousElementSibling.className.replace(" w3-white", "");
-    }
-}
-function confirmationLogout(anchor)
-{
-	var conf = confirm('Are you sure want to Logout?');
-	if(conf)
-	window.location=anchor.attr("href");
-}
-</script>
-</div>
-</body>
+    </style>
+  </head>
+
+  <body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+      <!-- Navbar Brand-->
+      <a class="navbar-brand ps-2 me-5" href="index.html"
+        >Agent Management System</a
+      >
+      <!-- Sidebar Toggle-->
+      <button
+        class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
+        id="sidebarToggle"
+        href="#!"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+      <!-- Navbar Search-->
+      <form
+        class="
+          d-none d-md-inline-block
+          form-inline
+          ms-auto
+          me-0 me-md-3
+          my-2 my-md-0
+        "
+      ></form>
+      <!-- Navbar-->
+      <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            id="navbarDropdown"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            ><i class="fas fa-user fa-fw"></i
+          ></a>
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="navbarDropdown"
+          >
+            <li>
+              <a
+                class="dropdown-item"
+                href="ViewAgentForAgentViewController?id=<%= agentid %>"
+                >Profile</a
+              >
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" href="LogoutController">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <div id="layoutSidenav">
+      <div id="layoutSidenav_nav">
+        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+          <div class="sb-sidenav-menu">
+            <div class="nav">
+              <div class="sb-sidenav-menu-heading">Agent</div>
+              <a class="nav-link" href="ViewOrderController?id=<%= agentid %>">
+                <div class="sb-nav-link-icon"><i class="fas fa-truck"></i></div>
+                View Order
+              </a>
+              <a class="nav-link" href="viewProductController">
+                <div class="sb-nav-link-icon"><i class="fas fa-cubes"></i></div>
+                Create Order
+              </a>
+              <a class="nav-link" href="cart.jsp">
+                <div class="sb-nav-link-icon">
+                  <i class="fas fa-shopping-cart"></i>
+                </div>
+                View Cart <span class="badge badge-danger ml-2"><c:out value=" ${cart.size()}">  </c:out>  </span>
+              </a>
+              <a
+                class="nav-link"
+                href="viewReturnOrderForAgent?id=<%= agentid %>"
+              >
+                <div class="sb-nav-link-icon">
+                  <i class="fas fa-exchange-alt"></i>
+                </div>
+                View Return Order
+              </a>
+            </div>
+          </div>
+
+          <div class="sb-sidenav-footer">
+            <div class="small">Logged in as:</div>
+            Username
+          </div>
+        </nav>
+      </div>
+      <div id="layoutSidenav_content">
+        <main>
+          <div class="container-fluid px-4">
+            <h1 class="mt-4">Create Return Order</h1>
+            <ol class="breadcrumb mb-4">
+              <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+            <form action="AddReturnOrderController" method="post" enctype="multipart/form-data">
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label label"
+                  >Agent ID:</label
+                >
+                <div class="col-sm-2">
+                 <input type="text" class="form-control" id="inputPassword" name="orderid" value="<c:out value="${c.orderid}"/>"readonly>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label label"
+                  >Product ID:</label
+                >
+                <div class="col-sm-2">
+             <input type="text" class="form-control" id="inputPassword" name="productid" value="<c:out value="${c.productid}"/>"readonly>
+                 
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label label"
+                  >Return Order Quantity:</label
+                >
+                <div class="col-sm-2">
+                <input type="number" class="form-control" id="inputPassword" name="returnOrderQuantity" min="1" max="${c.productquantity}" >  
+                  
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label label"
+                  >Return Order Status:</label
+                >
+                <div class="col-sm-2">
+            <input type="text" class="form-control" id="inputPassword" name="returnOrderStatus" value="Not approved yet" readonly>  
+               
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label label"
+                  >Return Order Image:</label
+                >
+                <div class="col-sm-3">
+             <input type="file" class="form-control" id="inputPassword" name="returnOrderImage">  
+              
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label label"
+                  >Return Order Description:</label
+                >
+                <div class="col-sm-4">
+            
+              <textarea class="form-control"   name="returnOrderDescription" id="exampleFormControlTextarea1" rows="3"></textarea>
+                
+                </div>
+              </div>
+             <button type="submit" class="btn btn-outline-dark mt-2">Submit</button>
+             <div class="alert alert-success alert-dismissible fade show mt-3" id="notice" style="display:none;">
+        <strong>Success!</strong> Your information has been successfully submit.
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+            </form>
+            <c:choose>
+    <c:when test="${success.equals('Update success')}">
+       <script>
+       $("#notice").show();
+       setTimeout(function(){ 
+    	      $("#notice").fadeOut();
+    	}, 5000);</script>                                 
+    </c:when>
+</c:choose>
+          </div>
+        </main>
+        <footer class="py-4 bg-light mt-auto">
+          <div class="container-fluid px-4">
+            <div
+              class="d-flex align-items-center justify-content-between small"
+            >
+              <div class="text-muted">
+                Copyright &copy; Agent Management System
+              </div>
+              <div>
+                <a href="#">Privacy Policy</a>
+                &middot;
+                <a href="#">Terms &amp; Conditions</a>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/scripts.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="assets/demo/chart-area-demo.js"></script>
+    <script src="assets/demo/chart-bar-demo.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/datatables-simple-demo.js"></script>
+  </body>
 </html>
