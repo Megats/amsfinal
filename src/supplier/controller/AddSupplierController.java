@@ -1,6 +1,8 @@
 package supplier.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,7 +40,10 @@ public class AddSupplierController extends HttpServlet {
 		s.setAdminID(request.getParameter("adminId"));
 		
 		dao.addSupplier(s);
-		response.sendRedirect("ListSupplierController");
+		
+		request.setAttribute("success", "Update success");
+		RequestDispatcher view = request.getRequestDispatcher("addSupplier.jsp");
+        view.forward(request, response);
 	}
 
 }

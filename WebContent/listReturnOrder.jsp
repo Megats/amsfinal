@@ -133,9 +133,9 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="ListOrderController"  >View Order</a>
-                                    <a class="nav-link" href="ListPaymentController">View Payment</a>
-                                    <a class="nav-link" href="ViewReturnOrder" >View Return Order</a>
+                                    <a class="nav-link" href="ListOrderController"  >List Order</a>
+                                    <a class="nav-link" href="ListPaymentController">List Payment</a>
+                                    <a class="nav-link" href="ViewReturnOrder" >List Return Order</a>
                                 </nav>
                             </div>
                         </div>
@@ -147,7 +147,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
                             </a>
                             <div class="collapse" id="collapseLayouts2" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="viewProductSupplier" >View Product</a>
+                                    <a class="nav-link" href="viewProductSupplier" >List Product</a>
                                     <a class="nav-link" href="addProduct.jsp">Add Product</a>
                                 </nav>
                             </div>
@@ -160,7 +160,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
                             </a>
                             <div class="collapse" id="collapseLayouts3" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="ListAgentController" >View Agent</a>
+                                    <a class="nav-link" href="ListAgentController" >List Agent</a>
                                     <a class="nav-link" href="addAgent.jsp">Add Agent</a>
                                     <%
 				//Remove '@' 
@@ -210,14 +210,14 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
       <div id="layoutSidenav_content">
         <main>
           <div class="container-fluid px-4">
-            <h1 class="mt-4">Payment List</h1>
+            <h1 class="mt-4">Return Order List</h1>
             <ol class="breadcrumb mb-4">
               <li class="breadcrumb-item active">Dashboard</li>
             </ol>
             <div class="card mb-4">
               <div class="card-header">
                 <i class="fas fa-table me-1"></i>
-                Payment List Table
+                Return Order List Table
               </div>
               <div class="card-body">
               <table id="datatablesSimple">

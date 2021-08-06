@@ -5,6 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -57,7 +58,10 @@ public class AddAgentController extends HttpServlet {
 		a.setAgentstatus(request.getParameter("agentStatus"));
 		
 		dao.addAgent(a);
-		response.sendRedirect("ListAgentController");
+		
+		request.setAttribute("success", "Update success");
+		RequestDispatcher view = request.getRequestDispatcher("addAgent.jsp");
+        view.forward(request, response);
 	}
 }
 

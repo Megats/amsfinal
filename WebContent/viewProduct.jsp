@@ -192,9 +192,9 @@ border-color:black;
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="ListOrderController"  >View Order</a>
-                                    <a class="nav-link" href="ListPaymentController">View Payment</a>
-                                    <a class="nav-link" href="ViewReturnOrder" >View Return Order</a>
+                                    <a class="nav-link" href="ListOrderController"  >List Order</a>
+                                    <a class="nav-link" href="ListPaymentController">List Payment</a>
+                                    <a class="nav-link" href="ViewReturnOrder" >List Return Order</a>
                                 </nav>
                             </div>
                         </div>
@@ -206,7 +206,7 @@ border-color:black;
                             </a>
                             <div class="collapse" id="collapseLayouts2" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="viewProductSupplier" >View Product</a>
+                                    <a class="nav-link" href="viewProductSupplier" >List Product</a>
                                     <a class="nav-link" href="addProduct.jsp">Add Product</a>
                                 </nav>
                             </div>
@@ -219,7 +219,7 @@ border-color:black;
                             </a>
                             <div class="collapse" id="collapseLayouts3" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="ListAgentController" >View Agent</a>
+                                    <a class="nav-link" href="ListAgentController" >List Agent</a>
                                     <a class="nav-link" href="addAgent.jsp">Add Agent</a>
                                     <%
 				//Remove '@' 

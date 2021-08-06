@@ -1,316 +1,347 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-     	<!-- get session -->
-	<% String suppliername = (String) session.getAttribute("sessioname");%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> <%@ taglib
+uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
+<!-- get session -->
+<% String suppliername = (String) session.getAttribute("sessioname");%>
 	<% String supplierposition = (String) session.getAttribute("sessionPosition"); %>
 	<% String sessionid = (String)session.getAttribute("sessionId"); %>
- 
 <!DOCTYPE html>
-<html>
-<title>AGENT MANAGEMENT SYSTEM</title>
-<meta charset="ISO-8859-1">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-<style>
-body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
-body {font-size:16px;}
-.w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
-.w3-half img:hover{opacity:1}
-
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-
-.footer
-{
-  position:absolute;
-  bottom:0;
-  width:100%;
-  margin-left:100px;
-  text-align:center;
-  left:0;
-}
-
-</style>
-
-<body>
-
-<!-- Sidenav/menu -->
-	<nav
-		class="w3-sidenav w3-pale-blue w3-collapse w3-top w3-large w3-padding"
-		style="z-index: 3; width: 300px; font-weight: bold;" id="mySidenav">
-		<br> <a href="javascript:void(0)" onclick="w3_close()"
-			class="w3-padding-xlarge w3-hide-large w3-display-topleft w3-hover-white"
-			style="width: 100%; font-size: 22px">Close Menu</a>
-		<div class="w3-container">
-			<img height="180px" src="picture/company_logo-removebg-preview.png" />
-			<h3 class="w3-padding-64">
-				<b><u>AGENT MANAGEMENT SYSTEM</u></b>
-			</h3>
-		</div>
-
-		<a href="ListOrderController" onclick="w3_close()"
-			class="w3-padding w3-hover-white">Home</a>
-		<div class="w3-padding w3-hover-white" onclick="myAccFunc()"
-			style="cursor: pointer">
-			Order <i class="fa fa-caret-down"></i>
-		</div>
-		<div id="demoAcc" class="w3-hide w3-blue-pale w3-card-4">
-			<a href="ListOrderController" class="w3-padding w3-hover-white">View
-				Order</a> <a href="ListPaymentController"
-				class="w3-padding w3-hover-white">View Payment</a> <a
-				href="ViewReturnOrder" class="w3-padding w3-hover-white">View
-				Return Order</a>
-		</div>
-		<div class="w3-padding w3-hover-white" onclick="myAccFunc1()"
-			style="cursor: pointer">
-			Product <i class="fa fa-caret-down"></i>
-		</div>
-		<div id="demoAcc1" class="w3-hide w3-blue-pale w3-card-4">
-			<a href="viewProductSupplier" class="w3-padding w3-hover-white">View
-				Product</a> <a href="addProduct.jsp" class="w3-padding w3-hover-white">Add
-				Product</a>
-		</div>
-		<div class="w3-padding w3-hover-white" onclick="myAccFunc2()"
-			style="cursor: pointer">
-			Agent <i class="fa fa-caret-down"></i>
-		</div>
-		<div id="demoAcc2" class="w3-hide w3-blue-pale w3-card-4">
-			<a href="ListAgentController" class="w3-padding w3-hover-white">View
-				Agent</a> <a href="addAgent.jsp" class="w3-padding w3-hover-white">Add
-				Agent</a>
-
-			<%
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Dashboard - SB Admin</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
+      rel="stylesheet"
+    />
+    <link href="css/styles.css" rel="stylesheet" />
+   <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
+      crossorigin="anonymous"
+    ></script>
+    
+    <style>
+             .bg-dark
+      {
+        background-color:#212529 !important;
+      }
+       .breadcrumb {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 0 !important;
+    margin-bottom: 1rem;
+    list-style: none;
+    background-color: transparent !important;
+    border-radius: .25rem;
+    } 
+    
+    </style>
+  </head>
+  <body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+      <!-- Navbar Brand-->
+      <a class="navbar-brand ps-2 me-5" href="index.html"
+        >Agent Management System</a
+      >
+      <!-- Sidebar Toggle-->
+      <button
+        class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
+        id="sidebarToggle"
+        href="#!"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+      <!-- Navbar Search-->
+      <form
+        class="
+          d-none d-md-inline-block
+          form-inline
+          ms-auto
+          me-0 me-md-3
+          my-2 my-md-0
+        "
+      ></form>
+      <!-- Navbar-->
+      <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            id="navbarDropdown"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            ><i class="fas fa-user fa-fw"></i
+          ></a>
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="navbarDropdown"
+          > 
+             <%
+             if (supplierposition.equals("Admin"))
+             {
+             %>
+             <div hidden="hidden">
+             <li><a class="dropdown-item" href="viewSupplierInformation?id=<%=sessionid%>">Profile</a></li>
+                         <li><hr class="dropdown-divider" /></li>
+             
+             </div>
+             <%
+             }
+             else
+             {
+             %>
+            <li><a class="dropdown-item" href="viewSupplierInformation?id=<%=sessionid%>">Profile</a></li>
+            <li><hr class="dropdown-divider" /></li>
+             <%
+             }
+             %>
+            <li><a class="dropdown-item" href="LogoutController">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <div id="layoutSidenav">
+      <div id="layoutSidenav_nav">
+        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+           <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Supplier</div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-truck"></i></div>
+                                Order
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="ListOrderController"  >List Order</a>
+                                    <a class="nav-link" href="ListPaymentController">List Payment</a>
+                                    <a class="nav-link" href="ViewReturnOrder" >List Return Order</a>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="nav">
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-cubes"></i></div>
+                                Product
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts2" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="viewProductSupplier" >List Product</a>
+                                    <a class="nav-link" href="addProduct.jsp">Add Product</a>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="nav">
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts3" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+                                Agent
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts3" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="ListAgentController" >List Agent</a>
+                                    <a class="nav-link" href="addAgent.jsp">Add Agent</a>
+                                    <%
 				//Remove '@' 
-			if (supplierposition.equals("supplier")) {
-			%><div hidden="hidden">
-				<a href="addSupplier.jsp" class="w3-padding w3-hover-white">Add
-					Supplier</a>
-			</div>
-			<%
-				} else {
-			%>
-			<a href="addSupplier.jsp" class="w3-padding w3-hover-white">Add
-				Supplier</a>
-			<%
-				}
-			%>
-			<%
+			               if (supplierposition.equals("supplier")) {
+			                  %>                       
+			                           <div hidden="hidden">
+			                       <a class="nav-link" href="addSupplier.jsp">Add Supplier</a>
+			                           
+			                           </div>
+			                  <% 
+			               }
+			               else
+			               {
+			            	 %>   
+			              <a class="nav-link" href="addSupplier.jsp">Add Supplier</a>
+			              <%
+			               }
+			              %>
+			              <%
 				//Remove '@' 
-			if (supplierposition.equals("supplier")) {
-			%><div hidden="hidden">
-				<a href="ListSupplierController" class="w3-padding w3-hover-white">View
-					Supplier</a>
-			</div>
-			<%
-				} else {
-			%>
-			<a href="ListSupplierController" class="w3-padding w3-hover-white">ViewSupplier</a>
-			<%
-				}
-			%>
-		</div>
-		<%
-			//Update supplier info 
-		if (supplierposition.equals("Admin")) {
-		%><div hidden="hidden">
-			<div class="w3-padding w3-hover-white" onclick="myAccFunc3()"
-				style="cursor: pointer">
-				Supplier <i class="fa fa-caret-down"></i>
-			</div>
-			<div id="demoAcc3" class="w3-hide w3-blue-pale w3-card-4">
-				<a href="viewSupplierInformation?id=<%=sessionid%>"
-					class="w3-padding w3-hover-white">View Supplier</a>
-				<%
-					} else {
-				%>
-				<div class="w3-padding w3-hover-white" onclick="myAccFunc3()"
-					style="cursor: pointer">
-					Supplier <i class="fa fa-caret-down"></i>
-				</div>
-				<div id="demoAcc3" class="w3-hide w3-blue-pale w3-card-4">
-					<a href="viewSupplierInformation?id=<%=sessionid%>"
-						class="w3-padding w3-hover-white">View Supplier</a>
-					<%
-						}
-					%>
-				</div></div></div>
-				<a onclick='confirmationLogout(this);return false;'
-					href="LogoutController" class="w3-padding w3-hover-white">Logout</a>
-	</nav>
-
-
-
-
-	<!-- Top menu on small screens -->
-<header class="w3-container w3-top w3-hide-large w3-pale-blue w3-xlarge w3-padding">
-  <a href="javascript:void(0)" class="w3-button w3-pale-blue w3-margin-right" onclick="w3_open()">☰</a>
-  <span>AGENT MANAGEMENT SYSTEM</span>
-</header>
-
-<!-- Overlay effect when opening sidenav on small screens -->
-<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
-
-<!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:340px;margin-right:40px">
-
-
-
-  <!-- Header -->
-  <div class="w3-container" style="margin-top:20px" id="home">
-    <h1 class="w3-jumbo"><b>Update Agent Status</b></h1>
-    <h1 class="w3-xxxlarge w3-text-black">Supplier : Hafiz</u></b></h1>
-    <hr style="width:50px;border:5px solid black" class="w3-round">
-  </div>
-  
-   <fieldset>
-  <legend>Please fill all the field</legend>
-<form action="UpdateAgentController" method="post">
-  
-  <label for="agentID">Agent ID:</label><br>
-  <input type="text" id="agentID" name="agentID" value="<c:out value="${a.agentid}"/>"readonly/><br>
-  
-  <label for="agentName">Full name:</label><br>
-  <input type="text" id="agentName" name="agentName" value="<c:out value="${a.agentname}"/>"readonly/><br>
-  
-  <label for="agentGender">Gender:</label><br>
-  <input id="agentGender" name="agentGender" value="<c:out value="${a.agentgender}"/>"readonly/><br>
-	
-  <label for="agentPhoneNo">Phone number:</label><br>
-  <input type="text" id="agentPhoneNo" name="agentPhoneNo" value="<c:out value="${a.agentphoneno}"/>"readonly/><br>
-  
-  <label for="agentAddress">Address:</label><br>
-  <textarea id="agentAddress" name="agentAddress" readonly/><c:out value="${a.agentaddress}"/></textarea><br>
-  
-  <label for="agentEmail">Email address:</label><br>
-  <input type="text" id="agentEmail" name="agentEmail" value="<c:out value="${a.agentemail}"/>"readonly/><br>
-  
-  <label for="agentDateAssign">Date Assigned:</label><br>
-  <input type="date" id="agentDateAssign" name="agentDateAssign" value="<c:out value="${a.agentDateAssign}"/>"readonly/><br>
-  
-  <label for="agentStatus">Agent Status:</label><br>
-  <select id="agentStatus" name="agentstatus">
+			               if (supplierposition.equals("supplier")) {
+			                  %>                       
+			                           <div hidden="hidden">
+			                       <a class="nav-link" href="ListSupplierController">List Supplier</a>
+			                           
+			                           </div>
+			                  <% 
+			               }
+			               else
+			               {
+			            	 %>   
+			              <a class="nav-link" href="ListSupplierController">List Supplier</a>
+			              <%
+			               }
+			              %>
+			  
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+          <div class="sb-sidenav-footer">
+            <div class="small">Logged in as: </div>
+           <%= sessionid %> <%= suppliername %> 
+          </div>
+        </nav>
+      </div>
+      <div id="layoutSidenav_content">
+        <main>
+          <div class="container-fluid px-4">
+            <h1 class="mt-4">Update Agent Status</h1>
+            <ol class="breadcrumb mb-4">
+              <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+            <form action= "UpdateAgentController" method="post">
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label label"
+                  >Agent ID:</label
+                >
+                <div class="col-sm-2">
+                 <input type="text" class="form-control-plaintext" id="inputPassword" name="agentId" value="<c:out value="${a.agentid}"/>" readonly>
+                </div>
+              </div>
+               <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label label"
+                  > Name:</label
+                >
+                <div class="col-sm-2">
+                 <input type="text" class="form-control-plaintext" id="inputPassword" name="agentName" value="<c:out value="${a.agentname}"/>" readonly>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label label"
+                  >Gender:</label
+                >
+                <div class="col-sm-2">
+             <input type="text" class="form-control-plaintext" id="inputPassword" name="agentGender" value="<c:out value="${a.agentgender}"/>" readonly>
+                 
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label label"
+                  >Phone No:</label
+                >
+                <div class="col-sm-2">
+                 <input type="text" class="form-control-plaintext" id="inputPassword" name="agentPhoneNo" value="<c:out value="${a.agentphoneno}"/>" readonly>
+               
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label label"
+                  >Agent Address :</label
+                >
+                <div class="col-sm-4">
+                <input type="text" class="form-control-plaintext" id="inputPassword" name="agentAddress"  value="${a.agentaddress}"readonly> 
+                  
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label label"
+                  >Email Address</label
+                >
+                <div class="col-sm-2">
+                 <input type="text" class="form-control-plaintext" id="inputPassword" name="agentEmail" value="<c:out value="${a.agentemail}"/>" readonly>
+               
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label label"
+                  >Date Assigned</label
+                >
+                <div class="col-sm-2">
+                 <input type="date" class="form-control-plaintext" id="inputPassword" name="agentDateAssign" value="<c:out value="${a.agentDateAssign}"/>" readonly>
+               
+                </div>
+              </div>
+                <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label label"
+                  >Agent Status</label
+                >
+                <div class="col-sm-2">
+                 <select id="agentStatus"  class="form-control" name="agentstatus">
     <option value="ACTIVE">Active</option>
     <option value="KIV">Keep In View</option>
     <option value="RESIGNED">Resigned</option>
-	</select><br>
-  <br><br>
-  
-  <input type="submit" value="Update">
-</form> 
-</fieldset>
- <!-- Photo grid (modal) 
-	<div class="w3-row-padding">
-		<div class="w3-half">
-		<img src="../pictures/group.jpg" style="width:100%" onclick="onClick(this)" alt="Signature Liberty Hotel">
-		<img src="../pictures/hotel.gif" style="width:100%" onclick="onClick(this)" alt="Hotel.gif">
-		</div>
-    <div class="w3-half">
-		<img src="../pictures/bed.jpg" style="width:100%" onclick="onClick(this)" alt="Bed">
-		<img src="../pictures/toilet.jpg" style="width:100%" onclick="onClick(this)" alt="Kids.jpg">
-    </div></div>
-	
-Modal for full size images on click
-  <div id="modal01" class="w3-modal w3-black w3-padding-0" onclick="this.style.display='none'">
-    <span class="w3-closebtn w3-text-white w3-opacity w3-hover-opacity-off w3-xxlarge w3-container w3-display-topright">×</span>
-    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-      <img id="img01" class="w3-image">
-      <p id="caption"></p>
+	</select>
+                </div>
+              </div>
+            
+            
+            
+            
+             <button type="submit" class="btn btn-outline-dark mt-2 ">Update</button>
+             <div class="alert alert-success alert-dismissible fade show mt-3 col-sm-4" id="notice" style="display:none;">
+        <strong>Success!</strong> Status has been successfully updated.
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
     </div>
-  </div> -->
-
-<!-- W3.CSS Container -->
-<div class="w3-light-grey w3-container w3-padding-8 footer" style="margin-top:45px;padding-right:58px"><p class="w3-right"><p align="center">© 2020 Agent Management System</p>
-
-<script>
-// Script to open and close sidenav
-function w3_open() {
-    document.getElementById("mySidenav").style.display = "block";
-    document.getElementById("myOverlay").style.display = "block";
-}
- 
-function w3_close() {
-    document.getElementById("mySidenav").style.display = "none";
-    document.getElementById("myOverlay").style.display = "none";
-}
-
-// Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
-
-// Accordion
-function myAccFunc() {
-    var x = document.getElementById("demoAcc");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-        x.previousElementSibling.className += " w3-white";
-    } else { 
-        x.className = x.className.replace(" w3-show", "");
-        x.previousElementSibling.className = 
-        x.previousElementSibling.className.replace(" w3-white", "");
-    }
-}
-function myAccFunc1() {
-    var x = document.getElementById("demoAcc1");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-        x.previousElementSibling.className += " w3-white";
-    } else { 
-        x.className = x.className.replace(" w3-show", "");
-        x.previousElementSibling.className = 
-        x.previousElementSibling.className.replace(" w3-white", "");
-    }
-}
-function myAccFunc2() {
-    var x = document.getElementById("demoAcc2");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-        x.previousElementSibling.className += " w3-white";
-    } else { 
-        x.className = x.className.replace(" w3-show", "");
-        x.previousElementSibling.className = 
-        x.previousElementSibling.className.replace(" w3-white", "");
-    }
-}
-
-function myAccFunc3() {
-    var x = document.getElementById("demoAcc3");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-        x.previousElementSibling.className += " w3-white";
-    } else { 
-        x.className = x.className.replace(" w3-show", "");
-        x.previousElementSibling.className = 
-        x.previousElementSibling.className.replace(" w3-white", "");
-    }
-}
-
-function confirmationLogout(anchor)
-{
-	var conf = confirm('Are you sure want to Logout?');
-	if(conf)
-	window.location=anchor.attr("href");
-}
-</script>
-
-</body>
+            </form>
+            <c:choose>
+    <c:when test="${success.equals('Update success')}">
+       <script>
+       $("#notice").show();
+       setTimeout(function(){ 
+    	      $("#notice").fadeOut();
+    	}, 5000);</script>                                 
+    </c:when>
+</c:choose>
+          </div>
+        </main>
+        <footer class="py-4 bg-light mt-auto">
+          <div class="container-fluid px-4">
+            <div
+              class="d-flex align-items-center justify-content-between small"
+            >
+              <div class="text-muted">
+                Copyright &copy; Agent Management System
+              </div>
+              <div>
+                <a href="#">Privacy Policy</a>
+                &middot;
+                <a href="#">Terms &amp; Conditions</a>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/scripts.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="assets/demo/chart-area-demo.js"></script>
+    <script src="assets/demo/chart-bar-demo.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/datatables-simple-demo.js"></script>
+  </body>
 </html>

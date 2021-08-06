@@ -55,7 +55,10 @@ public class UpdateAgentController extends HttpServlet {
 		a.setAgentstatus(request.getParameter("agentstatus"));
 		
 		dao.update(a);
-		response.sendRedirect("ListAgentController");
-	}
+	
+		request.setAttribute("success","Update success");
+		RequestDispatcher view = request.getRequestDispatcher("updateAgent.jsp");
+        view.forward(request, response);	
+   	}
 
 }

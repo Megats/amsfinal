@@ -52,7 +52,9 @@ public class UpdateReturnOrderController extends HttpServlet {
 		
 		dao.updateStatus(ro);
 		
-		response.sendRedirect("ViewReturnOrder");
+		request.setAttribute("success", "Update success");
+		RequestDispatcher view = request.getRequestDispatcher("updateReturnOrder.jsp");
+        view.forward(request, response);
 	}
 
 }

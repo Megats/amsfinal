@@ -38,7 +38,8 @@ public class UpdateOrderController extends HttpServlet {
 		o.setOrderstatus(request.getParameter("status"));
 		dao.update(o);
 		
-		request.setAttribute("od", OrderDAO.getAllOrderAgent());        
+		request.setAttribute("od", OrderDAO.getAllOrderAgent());  
+		request.setAttribute("success", "Update success");
 		RequestDispatcher view = request.getRequestDispatcher("viewOrderSupplier.jsp");
         view.forward(request, response);	
 	}
