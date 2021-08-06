@@ -196,7 +196,7 @@ border-color:black;
                     
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        Username
+                         <%= agentid %>
                     </div>
                 </nav>
             </div>

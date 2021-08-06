@@ -210,7 +210,7 @@ public class ReturnOrderDAO {
 		try {
 			con = ConnectionManager.getConnection();
 			ps = con.prepareStatement("select * from returnorder join orders using (orderid) join orderdetail using (productid)"
-									 + "join product using (productid) join agent using (agentid) where agentid=?");
+									 + "join product using (productid) where agentid=?");
 			ps.setString(1, agentid);
 			ResultSet rs = ps.executeQuery();
 

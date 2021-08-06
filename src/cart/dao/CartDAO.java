@@ -114,6 +114,34 @@ public class CartDAO {
 			}
 			return c;
 		}
+		
+		//Order detail
+		public static List<Cart> getOrderById(String orderid) {
+			List<Cart> roList = new ArrayList<Cart>();
+
+			try {
+				con = ConnectionManager.getConnection(); //2. call the method from ConnectionManager class to establish connection	
+				//String query = "select * from person where id=?";
+				ps = con.prepareStatement("select productid,productname,productprice,quantity from product join orderdetail using (productid) join orders using (orderid) where orderid=?");
+				ps.setString(1, orderid);
+				ResultSet rs = ps.executeQuery();
+				
+				while(rs.next()) {
+					Cart c = new Cart();
+					c.setProductid(rs.getString("productid"));
+					c.setProductname(rs.getString("productname"));
+					c.setProductprice(rs.getDouble("productprice"));
+					c.setProductquantity(rs.getInt("quantity"));
+					roList.add(c);
+				}
+			}
+			catch (Exception ex) {
+				ex.printStackTrace();
+				
+			}
+			return roList;
+		}
+
       
 		public void deleteCart(String orderid)
 		{
