@@ -89,7 +89,9 @@ public class AddProductController extends HttpServlet {
 					dao.addWet(w);
 				}
 				
-				response.sendRedirect("viewProductSupplier");
+				request.setAttribute("success", "Update success");
+				RequestDispatcher view = request.getRequestDispatcher("addProduct.jsp");
+		        view.forward(request, response);
 				}
 
 }

@@ -314,7 +314,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
                 </div>
               </div>
              <button type="submit" class="btn btn-outline-dark mt-2">Submit</button>
-             <div class="alert alert-success alert-dismissible fade show mt-3" id="notice" style="display:none;">
+             <div class="alert alert-success alert-dismissible fade show mt-3 col-sm-4" id="notice" style="display:none;">
         <strong>Success!</strong> Your information has been successfully submit.
         <button type="button" class="close" data-dismiss="alert">&times;</button>
     </div>

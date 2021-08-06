@@ -267,7 +267,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
                  <input type="text" class="form-control" id="inputPassword" name="agentID" value="<c:out value="${a.agentid}"/>" readonly>
                 </div>
               </div>
-              <div class="form-group row">
+             <div class="form-group row">
                 <label for="staticEmail" class="col-sm-2 col-form-label label"
                   >Agent Name:</label
                 >
@@ -332,7 +332,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
                 </div>
               </div>
              <button type="submit" class="btn btn-outline-dark mt-2">Update</button>
-             <div class="alert alert-success alert-dismissible fade show mt-3" id="notice" style="display:none;">
+             <div class="alert alert-success alert-dismissible fade show mt-3 col-sm-4" id="notice" style="display:none;">
         <strong>Success!</strong> Your information has been successfully updated.
         <button type="button" class="close" data-dismiss="alert">&times;</button>
     </div>
@@ -347,7 +347,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
     </c:when>
 </c:choose>
           </div>
-        </main>
+        </main> 
         <footer class="py-4 bg-light mt-auto">
           <div class="container-fluid px-4">
             <div

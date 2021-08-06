@@ -108,6 +108,33 @@ window.onload = function() {
     background-color: transparent !important;
     border-radius: .25rem;
     }
+    table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.footer
+{
+  position:absolute;
+  bottom:0;
+  width:100%;
+  margin-left:100px;
+  text-align:center;
+  left:0;
+}
+    
+    
     </style>
   </head>
   <body class="sb-nav-fixed">
@@ -149,9 +176,26 @@ window.onload = function() {
           <ul
             class="dropdown-menu dropdown-menu-end"
             aria-labelledby="navbarDropdown"
-          >
-            <li><a class="dropdown-item" href="ViewAgentForAgentViewController?id=<%= sessionid %>">Profile</a></li>
+          > 
+             <%
+             if (supplierposition.equals("Admin"))
+             {
+             %>
+             <div hidden="hidden">
+             <li><a class="dropdown-item" href="viewSupplierInformation?id=<%=sessionid%>">Profile</a></li>
+                         <li><hr class="dropdown-divider" /></li>
+             
+             </div>
+             <%
+             }
+             else
+             {
+             %>
+            <li><a class="dropdown-item" href="viewSupplierInformation?id=<%=sessionid%>">Profile</a></li>
             <li><hr class="dropdown-divider" /></li>
+             <%
+             }
+             %>
             <li><a class="dropdown-item" href="LogoutController">Logout</a></li>
           </ul>
         </li>
@@ -162,7 +206,7 @@ window.onload = function() {
         <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
            <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <div class="sb-sidenav-menu-heading">Interface</div>
+                            <div class="sb-sidenav-menu-heading">Supplier</div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-truck"></i></div>
                                 Order
@@ -170,9 +214,9 @@ window.onload = function() {
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.html">View Order</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">View Payment</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">View Return Order</a>
+                                    <a class="nav-link" href="ListOrderController"  >View Order</a>
+                                    <a class="nav-link" href="ListPaymentController">View Payment</a>
+                                    <a class="nav-link" href="ViewReturnOrder" >View Return Order</a>
                                 </nav>
                             </div>
                         </div>
@@ -184,8 +228,8 @@ window.onload = function() {
                             </a>
                             <div class="collapse" id="collapseLayouts2" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-sidenav-light.html">View Product</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Add Product</a>
+                                    <a class="nav-link" href="viewProductSupplier" >View Product</a>
+                                    <a class="nav-link" href="addProduct.jsp">Add Product</a>
                                 </nav>
                             </div>
                         </div>
@@ -197,11 +241,43 @@ window.onload = function() {
                             </a>
                             <div class="collapse" id="collapseLayouts3" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-sidenav-light.html">View Agent</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Add Agent</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Add Supplier</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">View Information</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">List Supplier</a>
+                                    <a class="nav-link" href="ListAgentController" >View Agent</a>
+                                    <a class="nav-link" href="addAgent.jsp">Add Agent</a>
+                                    <%
+				//Remove '@' 
+			               if (supplierposition.equals("supplier")) {
+			                  %>                       
+			                           <div hidden="hidden">
+			                       <a class="nav-link" href="addSupplier.jsp">Add Supplier</a>
+			                           
+			                           </div>
+			                  <% 
+			               }
+			               else
+			               {
+			            	 %>   
+			              <a class="nav-link" href="addSupplier.jsp">Add Supplier</a>
+			              <%
+			               }
+			              %>
+			              <%
+				//Remove '@' 
+			               if (supplierposition.equals("supplier")) {
+			                  %>                       
+			                           <div hidden="hidden">
+			                       <a class="nav-link" href="ListSupplierController">List Supplier</a>
+			                           
+			                           </div>
+			                  <% 
+			               }
+			               else
+			               {
+			            	 %>   
+			              <a class="nav-link" href="ListSupplierController">List Supplier</a>
+			              <%
+			               }
+			              %>
+			  
                                 </nav>
                             </div>
                         </div>
@@ -225,9 +301,7 @@ window.onload = function() {
                 Order Table
               </div>
               <div class="card-body">
-                <table id="showdata">
-                <tr id="showData"></tr>
-                </table>
+              <p id="showData"></p>
               </div>
             </div>
           </div>

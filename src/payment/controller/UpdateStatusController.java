@@ -39,7 +39,10 @@ public class UpdateStatusController extends HttpServlet {
 	pm.setPaymentid(paymentid);
 	pm.setPaymentstatus(request.getParameter("Status"));
 	dao.updatePaymentById(pm);
-	response.sendRedirect("ListPaymentController");
 
+	request.setAttribute("success", "Update success");
+	RequestDispatcher view = request.getRequestDispatcher("updatePaymentSupplier.jsp");
+    view.forward(request, response);	
+	
     }
 }

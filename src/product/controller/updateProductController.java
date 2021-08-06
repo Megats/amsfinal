@@ -54,7 +54,10 @@ public class updateProductController extends HttpServlet {
 		p.setProductId(productId);
 		p.setProductQuantity(productQuantity);
 		dao.updateProduct(p);
-		response.sendRedirect("viewProductSupplier");
+		request.setAttribute("p", ProductDAO.getProductByID(productId));
+	    request.setAttribute("success","Update success" );
+	    RequestDispatcher view = request.getRequestDispatcher("updateProduct.jsp");
+		view.forward(request, response);	
 	}
 }
 
