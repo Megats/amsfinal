@@ -40,6 +40,8 @@ public class UpdateStatusController extends HttpServlet {
 	pm.setPaymentstatus(request.getParameter("Status"));
 	dao.updatePaymentById(pm);
 
+	request.setAttribute("pm", PaymentDAO.getPayment(paymentid));
+	
 	request.setAttribute("success", "Update success");
 	RequestDispatcher view = request.getRequestDispatcher("updatePaymentSupplier.jsp");
     view.forward(request, response);	
