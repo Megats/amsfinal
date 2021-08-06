@@ -160,10 +160,10 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
                   <tbody>
                     <c:forEach items="${roList}" var="ro">
                        <tr>
-                                            <td><c:out value="${ro.productName}"/></td>   
-                                            <td> <fmt:formatNumber type="number" maxFractionDigits="2" minFractionDigits="2" value="${ro.productPrice}"/></td>
-                                            <td><c:out value="${ro.cart.productquantity}" /></td>
-                                            <td><c:set var="totalprice" value="${totalprice+ro.productPrice*ro.cart.productquantity}"/>
+                                            <td><c:out value="${ro.productname}"/></td>   
+                                            <td> <fmt:formatNumber type="number" maxFractionDigits="2" minFractionDigits="2" value="${ro.productprice}"/></td>
+                                            <td><c:out value="${ro.productquantity}" /></td>
+                                            <td><c:set var="totalprice" value="${ro.productprice*ro.productquantity}"/>
 											<fmt:formatNumber type="number" maxFractionDigits="2" minFractionDigits="2" value="${totalprice}"/></td>
                                                                                   
                                         </tr>

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import returnorder.dao.*;
 import order.dao.*;
+import cart.dao.*;
 
 /**
  * Servlet implementation class ListProductController
@@ -33,7 +34,8 @@ public class ListProductController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String id = request.getParameter("id");
-		request.setAttribute("roList", ReturnOrderDAO.getReturnOrderByOrderID(id));
+		System.out.println("Order id "+id);
+		request.setAttribute("roList", CartDAO.getOrderById(id));
 		request.setAttribute("od", OrderDAO.getAllOrder(id));
 		RequestDispatcher view = request.getRequestDispatcher("listProduct.jsp");
         view.forward(request, response);
