@@ -246,7 +246,8 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
                 >
                 <div class="col-sm-2">
                   <select class="form-control" name="returnOrderStatus">
-             <option value="Not approved yet" selected>Not approved yet</option>
+                  <option value="${ro.returnOrderStatus}" selected><c:out value="${ro.returnOrderStatus}"/></option>
+             <option value="Not approved yet" >Not approved yet</option>
 		     <option value="Approved">Approved</option>
 		    <option value="Rejected">Rejected</option>
 	            </select>

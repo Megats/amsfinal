@@ -47,11 +47,12 @@ public class UpdateReturnOrderController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		ReturnOrder ro = new ReturnOrder();
-		ro.setReturnOrderId(request.getParameter("returnOrderId"));
+		String returnOrderId = request.getParameter("returnOrderId");
+		ro.setReturnOrderId(returnOrderId);
 		ro.setReturnOrderStatus(request.getParameter("returnOrderStatus"));
 		
 		dao.updateStatus(ro);
-		
+		request.setAttribute("ro", dao.getReturnOrderByID(returnOrderId));
 		request.setAttribute("success", "Update success");
 		RequestDispatcher view = request.getRequestDispatcher("updateReturnOrder.jsp");
         view.forward(request, response);
