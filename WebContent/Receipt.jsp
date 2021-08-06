@@ -192,10 +192,10 @@ tr:nth-child(even) {
 											<c:forEach items="${roList}" var="ro">
                                         <tr>
                                             <td><c:out value="${ro.productName}"/></td>   
-                                            <td>RM <c:out value="${ro.productPrice}"/></td>
+                                            <td>RM <fmt:formatNumber type="number" maxFractionDigits="2" minFractionDigits="2" value="${ro.productPrice}"/></td>
                                             <td><c:out value="${ro.cart.productquantity}" /></td>
-                                            <td><c:set var="totalprice" value="${totalprice+ro.productPrice*ro.cart.productquantity}"/>
-											<c:out value="${totalprice}"/></td>
+                                            <td><c:set var="totalprice" value="${ro.productPrice*ro.cart.productquantity}"/>
+											<fmt:formatNumber type="number" maxFractionDigits="2" minFractionDigits="2" value="${totalprice}"/></td>
 											<td><a href="CreateReturnOrderController?id=${ro.productId}">
 											<button type="submit" value="Return">Return</button></a></td>
                                             										                                           
@@ -205,7 +205,7 @@ tr:nth-child(even) {
                                       <tr>
                                         <th colspan=2 class="timetable_pay2"> TOTAL </th>
                                          <th><c:out value="${od.orderquantity}" /></th>
-                                        <th>RM<c:out value="${od.ordertotalprice}" /></th>
+                                        <th><fmt:formatNumber type="number" maxFractionDigits="2" minFractionDigits="2" value="${od.ordertotalprice}"/></th>
                                         <th></th>
                                     </tr>		
                                 </table>
