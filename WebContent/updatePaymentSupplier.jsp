@@ -248,9 +248,9 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
                 <div class="col-sm-2">
                   <select class="form-control" name="Status">
                   <option value="${pm.paymentstatus}" selected disabled><c:out value="${pm.paymentstatus}"/></option>
-			<option value="Payment Pending">Payment Pending</option>
-			<option value="Payment Success"> Payment Success</option>
-			<option value="Payment Rejected"> Payment Rejected</option>
+			<option value="Payment Pending">Pending</option>
+			<option value="Payment Success">Accept</option>
+			<option value="Payment Rejected">Reject</option>
 	            </select>
                 </div>
               </div>
