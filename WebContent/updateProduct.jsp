@@ -246,7 +246,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
                   >Total Product Quantity</label
                 >
                 <div class="col-sm-2">
-                <input type="number" class="form-control" min="0" id="inputPassword" name="productQuantity" >  
+                <input type="number" class="form-control" min="0" id="inputPassword" name="quantity" >  
                   
                 </div>
               </div>

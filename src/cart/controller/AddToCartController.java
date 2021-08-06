@@ -142,6 +142,7 @@ public class AddToCartController extends HttpServlet {
 		
 		//ADD ORDER AT ORDER TABLE
 		String orderid = dao.addOrder(or);
+		System.out.println("Current order id is"+ orderid);
 		p.setOrderid(orderid);
 		
 		dao.addPayment(p);

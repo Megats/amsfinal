@@ -49,10 +49,10 @@ public class updateProductController extends HttpServlet {
 		// TODO Auto-generated method stub
 		Product p = new Product();
 		String productId = request.getParameter("productid");
-		int productQuantity = Integer.parseInt(request.getParameter("productQuantity"));
+		int quantity = Integer.parseInt(request.getParameter("quantity"));
 		//Blob productPicture = (Blob) request.getAttribute("productPicture");
 		p.setProductId(productId);
-		p.setProductQuantity(productQuantity);
+		p.setProductQuantity(quantity);
 		dao.updateProduct(p);
 		request.setAttribute("p", ProductDAO.getProductByID(productId));
 	    request.setAttribute("success","Update success" );
