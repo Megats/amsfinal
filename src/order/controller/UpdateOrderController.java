@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import order.dao.*;
 import order.model.*;
+import returnorder.dao.ReturnOrderDAO;
 /**
  * Servlet implementation class UpdateOrderController
  */
@@ -33,14 +34,16 @@ public class UpdateOrderController extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		Order o = new Order();
-		
-		o.setOrderid(request.getParameter("orderid"));
+		String id = request.getParameter("orderid");
+		o.setOrderid(id);
 		o.setOrderstatus(request.getParameter("status"));
 		dao.update(o);
 		
 		request.setAttribute("od", OrderDAO.getAllOrderAgent());  
 		request.setAttribute("success", "Update success");
-		RequestDispatcher view = request.getRequestDispatcher("viewOrderSupplier.jsp");
+		request.setAttribute("roList", ReturnOrderDAO.getReturnOrderByOrderID(id));
+		request.setAttribute("od", OrderDAO.getAllOrder(id));
+		RequestDispatcher view = request.getRequestDispatcher("viewDetailOrder.jsp");
         view.forward(request, response);	
 	}
 }
