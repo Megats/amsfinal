@@ -42,6 +42,7 @@
 			    text-align:center;
 			    padding-bottom:30px;
 			    flex-direction:column;
+			    position:relative;
 			}
 			
 			.btn-info {
@@ -98,7 +99,7 @@ border-color:black;
             .card-border {
                 margin: 10px;
                 padding: 5%;
-                height: 450px;
+                height:500px;
                 border-radius: 10px;
             }
             .item-status {
