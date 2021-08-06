@@ -57,6 +57,7 @@ public class LoginController extends HttpServlet {
 			{
 				
 				System.out.println("Incorrect id or password");
+				request.setAttribute("success", "Invalid username or password");
 				RequestDispatcher view = request.getRequestDispatcher("login.jsp");
 				view.forward(request, response);	
 			}		

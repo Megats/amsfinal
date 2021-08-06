@@ -208,11 +208,12 @@
                   />
                 </form>
                 <div class="alert">
-  <span class="closebtn">&times;</span>  
-  <strong>Warning!</strong>  You have entered the wrong username or password
+
 </div>
                 <a href="#!" class="forgot-password-link">Forgot password?</a>
                 <p class="login-card-footer-text">
+                <span style="color:red;" id="success">${success} </span>
+                
                   <a href="#!" class="text-reset"></a>
                 </p>
                 <nav class="login-card-footer-nav">
