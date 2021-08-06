@@ -267,8 +267,8 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
                 >
                 <div class="col-sm-2">
                 <select name="status" class="form-control" <c:if test="${od.paymentstatus.equals('Payment Pending')}"><c:out value="disabled='disabled'"/></c:if>>
-                <option value="${od.orderstatus}" selected><c:out value="${od.orderstatus}"/></option>
-             <option value="Not approved yet" selected>Not approved yet</option>
+                <option value="${od.orderstatus}" selected disabled><c:out value="${od.orderstatus}"/></option>
+             <option value="Not approved yet">Not approved yet</option>
 		     <option value="Approved">Approved</option>
 		    <option value="Rejected">Rejected</option>
 	            </select>
