@@ -43,7 +43,7 @@ public class UpdateOrderController extends HttpServlet {
 		request.setAttribute("success", "Update success");
 		request.setAttribute("roList", ReturnOrderDAO.getReturnOrderByOrderID(id));
 		request.setAttribute("od", OrderDAO.getAllOrder(id));
-		RequestDispatcher view = request.getRequestDispatcher("viewDetailOrder.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("ViewDetailOrder.jsp");
         view.forward(request, response);	
 	}
 }
