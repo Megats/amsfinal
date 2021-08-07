@@ -310,10 +310,20 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
               </div>
                <div class="form-group row" >
                 <label for="staticEmail" class="col-sm-2 col-form-label label"
-                  >Enter Product Quantity</label
+                  > Product Quantity</label
                 >
                 <div class="col-sm-2">
                 <input type="number" class="form-control" id="rm_input" name="productQuantity" placeholder="0.00"  min="0" step=".01" required>
+           
+                  
+                </div>
+              </div>
+               <div class="form-group row" >
+                <label for="staticEmail" class="col-sm-2 col-form-label label"
+                  > Product Price</label
+                >
+                <div class="col-sm-2">
+                <input type="text" class="form-control" id="rm_input" name="productPrice" placeholder="0.00"  min="0" step=".01" required>
            
                   
                 </div>
