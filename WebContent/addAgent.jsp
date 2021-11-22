@@ -263,9 +263,9 @@
 							<div class="col-sm-2">
 								<select class="form-control" name="agentGender" id="productType"
 									required>
-									<option selected disabled>Select Gender</option>
-									<option value="Dry">Male</option>
-									<option value="Wet">Female</option>
+									<option value="" selected disabled>Select Gender</option>
+									<option value="Male">Male</option>
+									<option value="Female">Female</option>
 								</select>
 							</div>
 						</div>
@@ -275,7 +275,7 @@
 								Number:</label>
 							<div class="col-sm-4">
 								<input type="text" class="form-control" id="inputPassword"
-									name="agentPhoneNo" placeholder="Enter Phone Number" required>
+									name="agentPhoneNo" placeholder="Enter Phone Number" maxlength="11" pattern="\d{10}" required>
 
 
 							</div>

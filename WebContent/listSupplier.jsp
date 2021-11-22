@@ -161,7 +161,7 @@
 						<div class="collapse" id="collapseLayouts3"
 							aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="ListAgentController">View Agent</a> <a
+								<a class="nav-link" href="ListAgentController">List Agent</a> <a
 									class="nav-link" href="addAgent.jsp">Add Agent</a>
 								<%
 				//Remove '@' 

@@ -272,7 +272,7 @@ input[type="search"]:active, input[type="search"]:focus {
 								Order Quantity:</label>
 							<div class="col-sm-2">
 								<input type="number" class="form-control" id="inputPassword"
-									name="returnOrderQuantity" min="1" max="${c.productquantity}">
+									name="returnOrderQuantity" min="1" max="${c.productquantity}" required>
 
 							</div>
 						</div>
@@ -290,7 +290,7 @@ input[type="search"]:active, input[type="search"]:focus {
 								Order Image:</label>
 							<div class="col-sm-3">
 								<input type="file" class="form-control" id="inputPassword"
-									name="returnOrderImage">
+									name="returnOrderImage" required>
 
 							</div>
 						</div>
@@ -300,7 +300,7 @@ input[type="search"]:active, input[type="search"]:focus {
 							<div class="col-sm-4">
 
 								<textarea class="form-control" name="returnOrderDescription"
-									id="exampleFormControlTextarea1" rows="3"></textarea>
+									id="exampleFormControlTextarea1" rows="3" required></textarea>
 
 							</div>
 						</div>

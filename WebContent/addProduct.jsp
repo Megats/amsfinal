@@ -247,8 +247,8 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
                   >Product Type</label
                 >
                 <div class="col-sm-2">
-                   <select class="form-control" name="productType" id="productType">
-      <option selected disabled>Select Product Type</option>
+                   <select class="form-control" name="productType" id="productType" required>
+      <option selected disabled value="">Select Product Type</option>
       <option value="Dry" >Dry</option>
 		<option value="Wet">Wet</option>
     </select>                  
@@ -313,7 +313,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
                   > Product Quantity</label
                 >
                 <div class="col-sm-2">
-                <input type="number" class="form-control" id="rm_input" name="productQuantity" placeholder="0.00"  min="0" step=".01" required>
+                <input type="number" class="form-control" id="rm_input" name="productQuantity" placeholder="1"  min="1" step="1" required>
            
                   
                 </div>

@@ -252,8 +252,8 @@
 							<label for="staticEmail" class="col-sm-2 col-form-label label">Total
 								Product Quantity</label>
 							<div class="col-sm-2">
-								<input type="number" class="form-control" min="0"
-									id="inputPassword" name="quantity">
+								<input type="number" class="form-control" min="1"
+									id="inputPassword" name="quantity" required>
 
 							</div>
 						</div>

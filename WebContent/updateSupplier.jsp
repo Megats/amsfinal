@@ -233,7 +233,7 @@
 								Full Name:</label>
 							<div class="col-sm-3">
 								<input type="text" class="form-control" id="inputPassword"
-									name="supplierName" value="<c:out value="${s.supplierName}"/>">
+									name="supplierName" value="<c:out value="${s.supplierName}"/>" required>
 							</div>
 						</div>
 						<div class="form-group row">
@@ -252,7 +252,7 @@
 							<div class="col-sm-3">
 								<input type="text" class="form-control" id="inputPassword"
 									name="supplierPassword"
-									value="<c:out value="${s.supplierPassword}"/>">
+									value="<c:out value="${s.supplierPassword}"/>" required>
 
 							</div>
 						</div>

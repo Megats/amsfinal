@@ -196,30 +196,32 @@ body {
 							<div class="brand-wrapper">
 								<img src="picture/company_logo-removebg-preview.png" alt="logo"
 									class="logo" width="70px">
-								<h2>Welcome Agent</h2>
+								<h2>Reset Password</h2>
 							</div>
-							<p class="login-card-description">Sign into your account</p>
-							<form action="LoginController" method="POST">
+							<form action="VerificationController" method="POST">
+								
+								
 								<div class="form-group">
-									<label for="agentid" class="sr-only">Agent ID</label> <input
-										type="text" name="agentid" id="agentid" class="form-control"
-										placeholder="Enter Agent ID" required />
+									<label for="agentid" class="sr-only">Enter new password</label> <input
+										type="text" name="password" id="password" class="form-control"
+										placeholder="Enter new password" onpaste="return false;" onCopy="return false" required />
 								</div>
 								<div class="form-group mb-4">
-									<label for="password" class="sr-only">Password</label> <input
+									<label for="password" class="sr-only">Re-enter new password</label> <input
 										type="password" name="password" id="password"
-										class="form-control" placeholder="Enter Password" required />
+										class="form-control" placeholder="Re-enter new password" onpaste="return false;" onCopy="return false" required />
 								</div>
+								
 								<input name="submit" id="login"
 									class="btn btn-block login-btn mb-4" type="submit"
-									value="Login" />
+									value="Submit" />
 							</form>
 							<div class="alert"></div>
-							<a href="verification.jsp" class="forgot-password-link">Forgot password?</a>
-							<p class="login-card-footer-text">
+							
+							
 								<span style="color: red;" id="success">${success} </span> <a
 									href="#!" class="text-reset"></a>
-							</p>
+							
 							<nav class="login-card-footer-nav">
 								<a href="#!">Terms of use.</a> <a href="#!">Privacy policy</a>
 							</nav>
@@ -269,6 +271,11 @@ body {
        	}   
     },10000)
    
-    </script>
+   
+
+
+</script>
+
+    
 </body>
 </html>

@@ -9,7 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import agent.model.Agent;
 import supplier.model.*;
 import db.connection.ConnectionManager;
 
@@ -23,6 +23,7 @@ public class SupplierDAO {
 	static String supplierID;
 	static String supplierName;
 	static String supplierPassword;
+	static String email,phoneno;
     String supplierPosition;
 	String adminID;
 	
@@ -65,7 +66,47 @@ public class SupplierDAO {
 			
 		}
 		
+		
+		/*//method for verification
+				public static Supplier verification(Agent bean) throws NoSuchAlgorithmException{
+					//get email and password
+					email = bean.getAgentemail();
+					phoneno = bean.getAgentphoneno();
 
+					
+					String query = "select * from AGENT where AGENTEMAIL='" + email + "'OR AGENTPHONENO='" + phoneno + "'";
+
+					try {
+						con = ConnectionManager.getConnection();
+						stmt = con.createStatement();
+						rs = stmt.executeQuery(query);
+						boolean more = rs.next();
+
+						// if user exists set the isValid variable to true
+						if (more) {
+							System.out.println("User exist");
+							String id = rs.getString("agentid");
+							String agentemail = rs.getString("agentemail");
+							bean.setAgentid(id);
+							bean.setAgentemail(agentemail);
+							
+							bean.setValid(true);
+						}
+						// if user does not exist set the isValid variable to false
+						else if (!more) {
+							System.out.println("Not exist");
+							bean.setValid(false);
+						}
+
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+
+					return bean;
+					
+					
+				}
+*/
 	
 	//Adding supplier
 	public void addSupplier (Supplier s) {

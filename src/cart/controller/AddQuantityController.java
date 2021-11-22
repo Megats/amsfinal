@@ -52,7 +52,7 @@ public class AddQuantityController extends HttpServlet {
 
 				if (action.equals("dec")) {
 					for (Cart c : cart_list) {
-						if (c.getProductid().equals(productid) && c.getProductquantity() > 1) {
+						if (c.getProductid().equals(productid) && c.getProductquantity() > 10) {
 							int quantity = c.getProductquantity();
 							quantity--;
 							c.setProductquantity(quantity);
