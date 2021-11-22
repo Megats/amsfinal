@@ -1,287 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Login</title>
-    <link
-      href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    />
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Login</title>
+<link
+	href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap"
+	rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
 
-    <style>
-            body {
-              font-family: "Karla", sans-serif;
+<style>
+body {
+	font-family: "Karla", sans-serif;
+	min-height: 100vh;
+}
 
-              min-height: 100vh;
-            }
+.login-card {
+	border: 0;
+	border-radius: 27.5px;
+	overflow: hidden;
+	padding: 50px;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	position: relative;
+	background: rgba(255, 255, 255, 0.25);
+	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+	backdrop-filter: blur(4px);
+	-webkit-backdrop-filter: blur(4px);
+	border-radius: 10px;
+	border: 1px solid rgba(255, 255, 255, 0.18);
+}
 
+.login-card h1 {
+	margin-top: 10px;
+	margin-bottom: 30px;
+	font-weight: 600;
+}
 
-            .login-card {
-              border: 0;
-              border-radius: 27.5px;
-              overflow: hidden;
-              padding:50px;
-              display: flex;
-              justify-content: center;
-              text-align: center;
-              align-items: center;
-              position: relative;
-              background: rgba( 255, 255, 255, 0.25 );
-              box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-               backdrop-filter: blur( 4px );
-              -webkit-backdrop-filter: blur( 4px );
-              border-radius: 10px;
-              border: 1px solid rgba( 255, 255, 255, 0.18 );
+.login-card .card-body {
+	padding: 75px 60px 60px;
+}
 
-            }
-            .login-card h1
-            {
-                margin-top: 10px;
-                margin-bottom: 30px;
-                font-weight: 600;
-            }
+@media ( max-width : 422px) {
+	.login-card .card-body {
+		padding: 35px 24px;
+	}
+}
 
-            .login-card .card-body {
-              padding: 75px 60px 60px;
-            }
-            @media (max-width: 422px) {
-              .login-card .card-body {
-                padding: 35px 24px;
-              }
-            }
+@media ( max-width : 767px) {
+	.login-card-footer-text {
+		margin-bottom: 24px;
+	}
+}
 
-            @media (max-width: 767px) {
-              .login-card-footer-text {
-                margin-bottom: 24px;
-              }
-            }
+.a {
+	color: #e7484f;
+}
 
-            .a {
-              color: #e7484f;
-            }
-            .b {
-              color: #f68b1d;
-            }
-            .c {
-              color: #fced00;
-            }
-            .d {
-              color: #009e4f;
-            }
-            .e {
-              color: #00aac3;
-            }
-            .f {
-              color: #732982;
-            }
+.b {
+	color: #f68b1d;
+}
 
+.c {
+	color: #fced00;
+}
 
-            .text-center {
-              text-align: center;
-            }
+.d {
+	color: #009e4f;
+}
 
-            .rainbow {
-              background-color: #343a40;
-              border-radius: 4px;
-              color: #fff;
-              cursor: pointer;
-              padding: 8px 16px;
-            }
+.e {
+	color: #00aac3;
+}
 
-            .rainbow-1:hover {
-              background-image: linear-gradient(
-                90deg,
-                #00c0ff 0%,
-                #ffcf00 49%,
-                #fc4f4f 80%,
-                #00c0ff 100%
-              );
-              animation: slidebg 5s linear infinite;
-            }
+.f {
+	color: #732982;
+}
 
-            .rainbow-2:hover {
-              background-image: linear-gradient(
-                to right,
-                red,
-                orange,
-                yellow,
-                green,
-                blue,
-                indigo,
-                violet,
-                red
-              );
-              animation: slidebg 2s linear infinite;
-            }
+.text-center {
+	text-align: center;
+}
 
-            .rainbow-3:hover {
-              background-image: linear-gradient(
-                to right,
-                red,
-                orange,
-                yellow,
-                green,
-                blue,
-                indigo,
-                red
-              );
-              animation: slidebg 2s linear infinite;
-            }
+.rainbow {
+	background-color: #343a40;
+	border-radius: 4px;
+	color: #fff;
+	cursor: pointer;
+	padding: 8px 16px;
+}
 
-            .rainbow-4:hover {
-              background-image: linear-gradient(
-                to right,
-                #e7484f,
-                #f68b1d,
-                #fced00,
-                #009e4f,
-                #00aac3,
-                #732982
-              );
-              animation: slidebg 2s linear infinite;
-            }
+.rainbow-1:hover {
+	background-image: linear-gradient(90deg, #00c0ff 0%, #ffcf00 49%, #fc4f4f 80%, #00c0ff
+		100%);
+	animation: slidebg 5s linear infinite;
+}
 
-            .rainbow-5:hover {
-              background-image: linear-gradient(
-                to right,
-                #e7484f,
-                #e7484f 16.65%,
-                #f68b1d 16.65%,
-                #f68b1d 33.3%,
-                #fced00 33.3%,
-                #fced00 49.95%,
-                #009e4f 49.95%,
-                #009e4f 66.6%,
-                #00aac3 66.6%,
-                #00aac3 83.25%,
-                #732982 83.25%,
-                #732982 100%,
-                #e7484f 100%
-              );
-              animation: slidebg 2s linear infinite;
-            }
+.rainbow-2:hover {
+	background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo,
+		violet, red);
+	animation: slidebg 2s linear infinite;
+}
 
-            @keyframes slidebg {
-              to {
-                background-position: 20vw;
-              }
-            }
+.rainbow-3:hover {
+	background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, red);
+	animation: slidebg 2s linear infinite;
+}
 
-            .follow {
-              margin-top: 40px;
-            }
+.rainbow-4:hover {
+	background-image: linear-gradient(to right, #e7484f, #f68b1d, #fced00, #009e4f, #00aac3,
+		#732982);
+	animation: slidebg 2s linear infinite;
+}
 
-            .follow a {
-              color: black;
-              padding: 8px 16px;
-              text-decoration: none;
-            }
+.rainbow-5:hover {
+	background-image: linear-gradient(to right, #e7484f, #e7484f 16.65%, #f68b1d 16.65%,
+		#f68b1d 33.3%, #fced00 33.3%, #fced00 49.95%, #009e4f 49.95%, #009e4f
+		66.6%, #00aac3 66.6%, #00aac3 83.25%, #732982 83.25%, #732982 100%,
+		#e7484f 100%);
+	animation: slidebg 2s linear infinite;
+}
 
-            a
-            {
-                padding:30px;
-                margin-right: 20px;
-                font-size: 20px;
-                color:white;
-            }
-            a:not([href]) {
-          color: white !important;
-          text-decoration: none;
-      }
-      @media (min-width: 1200px)
-      {
-          .container, .container-lg, .container-md, .container-sm, .container-xl {
-          max-width: 720px !important;
-      }
-      }
-      h1{
-        font-family: 'Teko', sans-serif;
-        text-transform: uppercase;
-        font-size: 3rem;
-        text-align: center;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-align-items: center;
-        align-items: center;
-        -webkit-justify-content: center;
-        justify-content: center;
-        margin: 0;
+@
+keyframes slidebg {to { background-position:20vw;
+	
+}
 
-        position: relative;
+}
+.follow {
+	margin-top: 40px;
+}
 
-        color: #000;
-      
-      }
+.follow a {
+	color: black;
+	padding: 8px 16px;
+	text-decoration: none;
+}
 
-      h1:before{
-        content: attr(data-text);
-        position: absolute;
-        background: linear-gradient(#0079db, #0079db, #0079db,#0079db,#0079db, #0079db);
-        -webkit-background-clip: text;
-        color: transparent;
-        background-size: 100% 90%;
-        line-height: 1.2;
-        clip-path: ellipse(120px 120px at -2.54% -9.25%);
-        animation: swing 5s infinite;
-        animation-direction: alternate;
+a {
+	padding: 30px;
+	margin-right: 20px;
+	font-size: 20px;
+	color: white;
+}
 
-      }
+a:not([href]) {
+	color: white !important;
+	text-decoration: none;
+}
 
-      @keyframes swing{
-        0%{
-           -webkit-clip-path: ellipse(120px 120px at -2.54% -9.25%)
-          clip-path: ellipse(120px 120px at -2.54% -9.25%)
-        }
-        50%{
-          -webkit-clip-path: ellipse(120px 120px at 49.66% 64.36%);
-          clip-path: ellipse(120px 120px at 49.66% 64.36%);
+@media ( min-width : 1200px) {
+	.container, .container-lg, .container-md, .container-sm, .container-xl {
+		max-width: 720px !important;
+	}
+}
 
-        }
-        100%{
-           -webkit-clip-path: ellipse(120px 120px at 102.62% -1.61%;);
-          clip-path: ellipse(120px 120px at 102.62% -1.61%);
-        }
-      }
-      canvas{
-      	position:absolute;
-      	top:0;
-      	left:0;
-        z-index: -5;
-      }
+h1 {
+	font-family: 'Teko', sans-serif;
+	text-transform: uppercase;
+	font-size: 3rem;
+	text-align: center;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-align-items: center;
+	align-items: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	margin: 0;
+	position: relative;
+	color: #000;
+}
 
+h1:before {
+	content: attr(data-text);
+	position: absolute;
+	background: linear-gradient(#0079db, #0079db, #0079db, #0079db, #0079db, #0079db);
+	-webkit-background-clip: text;
+	color: transparent;
+	background-size: 100% 90%;
+	line-height: 1.2;
+	clip-path: ellipse(120px 120px at -2.54% -9.25%);
+	animation: swing 5s infinite;
+	animation-direction: alternate;
+}
 
-            /*# sourceMappingURL=login.css.map */
-    </style>
-  </head>
-  <body>
-    <canvas></canvas>
-    <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
-      <div class="container">
-        <div class="card login-card">
-          <img src="picture/company_logo-removebg-preview.png" width="100px" />
-          <h1 data-text="Agent Management System">Agent Management System</h1>
-          <div class="row">
-            <a href="login.jsp" style="text-decoration: none;" class="rainbow rainbow-1">Agent</a>
-            <a href="LoginSupplier.jsp" style="text-decoration: none;" class="rainbow rainbow-2">Supplier</a>
-          </div>
-        </div>
-      </div>
-    </main>
+@
+keyframes swing { 0%{
+	-webkit-clip-path: ellipse(120px 120px at -2.54% -9.25%) clip-path: ellipse(120px 120px at -2.54% -9.25%)
+}
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <script>
+50
+%
+{
+-webkit-clip-path
+:
+ellipse(
+120px
+120px
+at
+49.66%
+64.36%
+);
+clip-path
+:
+ellipse(
+120px
+120px
+at
+49.66%
+64.36%
+);
+}
+100
+%
+{
+-webkit-clip-path
+:
+ellipse(
+120px
+120px
+at
+102.62%
+-1.61%;
+);
+clip-path
+:
+ellipse(
+120px
+120px
+at
+102.62%
+-1.61%
+);
+}
+}
+canvas {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -5;
+}
+
+/*# sourceMappingURL=login.css.map */
+</style>
+</head>
+<body>
+	<canvas></canvas>
+	<main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
+		<div class="container">
+			<div class="card login-card">
+				<img src="picture/company_logo-removebg-preview.png" width="100px" />
+				<h1 data-text="Agent Management System">Agent Management System</h1>
+				<div class="row">
+					<a href="login.jsp" style="text-decoration: none;"
+						class="rainbow rainbow-1">Agent</a> <a href="LoginSupplier.jsp"
+						style="text-decoration: none;" class="rainbow rainbow-2">Supplier</a>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script>
       "use strict";
 
       var tetrominos = [
@@ -763,5 +752,5 @@
         );
       }
     </script>
-  </body>
+</body>
 </html>

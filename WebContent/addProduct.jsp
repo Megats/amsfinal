@@ -324,13 +324,8 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
                 >
                 <div class="col-sm-2">
                 <input type="text" class="form-control" id="rm_input" name="productPrice" placeholder="0.00"  min="0" step=".01" required>
-           
-                  
                 </div>
               </div>
-              
-              
-             
                          <button type="submit" class="btn btn-outline-dark mt-2 ">Submit</button>
              <div class="alert alert-success alert-dismissible fade show mt-3 col-sm-4" id="notice" style="display:none;">
         <strong>Success!</strong> Your information has been successfully submit.
@@ -398,8 +393,6 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
       src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
       crossorigin="anonymous"
     ></script>
-    <script src="assets/demo/chart-area-demo.js"></script>
-    <script src="assets/demo/chart-bar-demo.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
       crossorigin="anonymous"
