@@ -222,7 +222,8 @@ input[type="search"]:active, input[type="search"]:focus {
 
 				<div class="sb-sidenav-footer">
 					<div class="small">Logged in as:</div>
-					Username
+										<%= agentid %>
+					
 				</div>
 			</nav>
 		</div>

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cart.dao.CartDAO;
 import order.dao.*;
 import returnorder.dao.ReturnOrderDAO;
 
@@ -34,8 +35,7 @@ public class ViewDetailOrderController extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		String id = request.getParameter("id");
-		System.out.println("order id at servlet is "+id);
-		request.setAttribute("roList", ReturnOrderDAO.getReturnOrderByOrderID(id));
+		request.setAttribute("roList", CartDAO.getOrderById(id));
 		request.setAttribute("od", OrderDAO.getAllOrder(id));
 		RequestDispatcher view = request.getRequestDispatcher("ViewDetailOrder.jsp");
 		view.forward(request, response);	

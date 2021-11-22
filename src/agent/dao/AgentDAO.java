@@ -20,6 +20,7 @@ public class AgentDAO {
 	static PreparedStatement ps=null;
 	static Statement stmt=null;
 	static String id, password;
+	static String email,phoneno;
 	String agentID, agentName, agentGender, agentPhoneNo, agentAddress, agentPassword, agentStatus,agentEmailAddress;
 	Date agentDateAssign;
 
@@ -62,6 +63,46 @@ public class AgentDAO {
 		
 		
 	}
+	
+	//method for verification
+		public static Agent verification(Agent bean) throws NoSuchAlgorithmException{
+			//get email and password
+			email = bean.getAgentemail();
+			phoneno = bean.getAgentphoneno();
+
+			
+			String query = "select * from AGENT where AGENTEMAIL='" + email + "'OR AGENTPHONENO='" + phoneno + "'";
+
+			try {
+				currentCon = ConnectionManager.getConnection();
+				stmt = currentCon.createStatement();
+				rs = stmt.executeQuery(query);
+				boolean more = rs.next();
+
+				// if user exists set the isValid variable to true
+				if (more) {
+					System.out.println("User exist");
+					String id = rs.getString("agentid");
+					String agentemail = rs.getString("agentemail");
+					bean.setAgentid(id);
+					bean.setAgentemail(agentemail);
+					
+					bean.setValid(true);
+				}
+				// if user does not exist set the isValid variable to false
+				else if (!more) {
+					System.out.println("Not exist");
+					bean.setValid(false);
+				}
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+
+			return bean;
+			
+			
+		}
 	
 
 	//get user by email
@@ -183,6 +224,9 @@ public class AgentDAO {
 		public void update(Agent a) {
 			agentID = a.getAgentid();
 			agentStatus = a.getAgentstatus();
+			System.out.println("agent id to be updated: "+ agentID);
+			System.out.println("status to be updated: "+ agentStatus);
+
 			try {
 				currentCon = ConnectionManager.getConnection(); // 2. establish connection
 				String query = "update agent set agentstatus='"+agentStatus+"' WHERE agentID='"+agentID+"'";

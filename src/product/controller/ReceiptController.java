@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import order.dao.OrderDAO;
 import returnorder.dao.ReturnOrderDAO;
+import cart.dao.*;
 
 /**
  * Servlet implementation class ReceiptController
@@ -35,7 +36,7 @@ public class ReceiptController extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String id = request.getParameter("id");
-		request.setAttribute("roList", ReturnOrderDAO.getReturnOrderByOrderID(id));
+		request.setAttribute("roList", CartDAO.getOrderById(id));
 		request.setAttribute("od", OrderDAO.getAllOrder(id));
 		RequestDispatcher view = request.getRequestDispatcher("Receipt.jsp");
 		view.forward(request, response);

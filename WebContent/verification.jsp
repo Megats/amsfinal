@@ -198,25 +198,31 @@ body {
 									class="logo" width="70px">
 								<h2>Welcome Agent</h2>
 							</div>
-							<p class="login-card-description">Sign into your account</p>
-							<form action="LoginController" method="POST">
+							<p class="login-card-description">Choose verification method</p>
+							<form action="VerificationController" method="POST">
 								<div class="form-group">
-									<label for="agentid" class="sr-only">Agent ID</label> <input
-										type="text" name="agentid" id="agentid" class="form-control"
-										placeholder="Enter Agent ID" required />
+								
+								Email<br>
+								    <input type="radio" id="emailselect" name=verification value="Email"><br>
+								    <div id="dvemail" style="display: none">
+								    <input type="email" name="email">
+								    </div>
+								
+								    Phone Number<br>
+								    <input type="radio" id="phoneselect" name="verification" value="PhoneNumber"><br>
+								    <div id="dvphonenumber" style="display: none">
+								    <input type="text" name="phonenumber">
+								    </div>
+
 								</div>
-								<div class="form-group mb-4">
-									<label for="password" class="sr-only">Password</label> <input
-										type="password" name="password" id="password"
-										class="form-control" placeholder="Enter Password" required />
-								</div>
+								
 								<input name="submit" id="login"
 									class="btn btn-block login-btn mb-4" type="submit"
-									value="Login" />
+									value="Proceed" />
 							</form>
 							<div class="alert"></div>
-							<a href="verification.jsp" class="forgot-password-link">Forgot password?</a>
-							<p class="login-card-footer-text">
+							
+							
 								<span style="color: red;" id="success">${success} </span> <a
 									href="#!" class="text-reset"></a>
 							</p>
@@ -269,6 +275,24 @@ body {
        	}   
     },10000)
    
-    </script>
+   
+
+ <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"</script>
+<script type="text/javascript">
+
+    $(function () {
+        $("input[name='verification']").click(function () {
+            if ($("#emailselect").is(":checked")) {
+                $("#dvemail").show();
+                $("#dvphonenumber").hide();
+            } else {
+                $("#dvemail").hide();
+                $("#dvphonenumber").show();
+            }
+        });
+    });
+</script>
+
+    
 </body>
 </html>
