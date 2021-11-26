@@ -46,9 +46,12 @@ public class UpdateAgentController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		Agent a = new Agent();
+<<<<<<< HEAD
+=======
 		
 		String agentID = (request.getParameter("agentId"));
 
+>>>>>>> 1b13e586ec0ac6bf17e19066687bb108e78ba6a1
 		a.setAgentid(request.getParameter("agentId"));
 		a.setAgentname(request.getParameter("agentName"));
 		a.setAgentgender(request.getParameter("agentGender"));
