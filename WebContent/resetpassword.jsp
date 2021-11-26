@@ -1,3 +1,8 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
+<!-- get session -->
+<% String email = (String) session.getAttribute("sessionId");%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -198,23 +203,29 @@ body {
 									class="logo" width="70px">
 								<h2>Reset Password</h2>
 							</div>
-							<form action="VerificationController" method="POST">
+							<form action="ResetController" method="POST">
 								
-								
+								<input type="hidden" name="email" value="<%=email%>"/>
 								<div class="form-group">
 									<label for="agentid" class="sr-only">Enter new password</label> <input
 										type="text" name="password" id="password" class="form-control"
-										placeholder="Enter new password" onpaste="return false;" onCopy="return false" required />
+										placeholder="Enter new password" onpaste="return false;" onCopy="return false" onkeyup="check();" required>
 								</div>
 								<div class="form-group mb-4">
 									<label for="password" class="sr-only">Re-enter new password</label> <input
-										type="password" name="password" id="password"
-										class="form-control" placeholder="Re-enter new password" onpaste="return false;" onCopy="return false" required />
+										type="password" name="passwordConfirm" id="passwordConfirm"
+										class="form-control" placeholder="Re-enter new password" onpaste="return false;" onCopy="return false" onkeyup="check();" required>
+								<span id="message"></span>
 								</div>
-								
-								<input name="submit" id="login"
-									class="btn btn-block login-btn mb-4" type="submit"
-									value="Submit" />
+																	
+								<input name="submit" id="submit" class="btn btn-block login-btn mb-4" type="submit" value="Submit" disabled = "disabled">
+							<c:choose>
+                        	<c:when test="${success.equals('Password has been reset!')}">
+                            <script>
+	                			alert("Password has been reset!");
+                            </script>
+								                        </c:when>
+								                    </c:choose>
 							</form>
 							<div class="alert"></div>
 							
@@ -257,12 +268,28 @@ body {
       </div> -->
 		</div>
 	</main>
+	<script src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'>
+	</script>
+	<script src='//cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js'>
+	</script>
+	<script src="//cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js">
+	</script>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 	<script
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 	<script>
+	
+	
+	function myFunction() {
+		password = document.getElementById("password");
+		
+		if(password == null)
+			alert("please enter password");
+		else
+			alert("Password has been reset!");
+	}
     var close = document.getElementsByClassName("closebtn");
     setTimeOut(function(){
  
@@ -271,7 +298,19 @@ body {
        	}   
     },10000)
    
-   
+   function check() {
+  if (document.getElementById('password').value ==
+    document.getElementById('passwordConfirm').value) {
+    document.getElementById('message').style.color = 'green';
+    document.getElementById('message').innerHTML = 'matching';
+    document.getElementById("submit").disabled = false;
+
+  } else {
+    document.getElementById('message').style.color = 'red';
+    document.getElementById('message').innerHTML = 'not matching';
+    document.getElementById("submit").disabled = true;
+  }
+}
 
 
 </script>

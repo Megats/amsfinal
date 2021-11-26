@@ -44,6 +44,9 @@ public class VerificationController extends HttpServlet {
 			//set user session if user is valid
 			if(agent.isValid()){
 
+				HttpSession session = request.getSession(true);
+				session.setAttribute("sessionId", agent.getAgentemail());
+				session.setAttribute("currentSessionUser",agent);
 				RequestDispatcher view = request.getRequestDispatcher("resetpassword.jsp");
 		        view.forward(request, response);		
 			}

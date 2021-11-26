@@ -1,6 +1,7 @@
 package cart.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,6 +37,8 @@ public class CustomerAddCartController extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		String productid = request.getParameter("id");
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
 		System.out.println("product id into cart is "+productid);
 		double totalprice = 0;
 		
@@ -57,11 +60,13 @@ public class CustomerAddCartController extends HttpServlet {
 		ct.setProducttotalprice(totalprice);
 		HttpSession session = request.getSession(true); 
 		@SuppressWarnings("unchecked")
-		List<Cart> omA = (List<Cart>) session.getAttribute("cart");
+		ArrayList<Cart> omA = (ArrayList<Cart>) session.getAttribute("cart");
+		ArrayList<Cart> omAA = new ArrayList<Cart>();
+
 		
 		if(omA == null)
 		{
-			List<Cart> omAA = new ArrayList<Cart>();
+			System.out.println("current product id when not added is "+ productid);
 			omAA.add(ct);
 			
 			session.setAttribute("cart", omAA);
@@ -70,10 +75,25 @@ public class CustomerAddCartController extends HttpServlet {
 			response.sendRedirect("viewProductController");
 		}
 		else {
-			omA.add(ct);
-			session.setAttribute("cart", omA);
-			response.sendRedirect("viewProductController");
-		}
-	}		
+			
+            boolean exist = false;
+            for (Cart c:omA) {
+            	
+            	 if (c.getProductid().equals(productid)) {
+                     exist = true;
+                     System.out.println("same product");
+                     out.println("<h3 style='color:crimson; text-align: center'>Item Already in Cart. <a href='cart.jsp'>GO to Cart Page</a></h3>");
+            	 }
+                 out.println("<h3 style='color:crimson; text-align: center'>Item Already in Cart. <a href='cart.jsp'>GO to Cart Page</a></h3>");
 
+            }
+
+            if (!exist) {
+            	
+                omA.add(ct);
+                response.sendRedirect("viewProductController");
+            }
+					}
+	}		
 }
+

@@ -238,6 +238,7 @@ public class AgentDAO {
 			}
 		}
 		
+		
 		//Update Agent Personal Information
 		public void updateAgentInfo(Agent a) {
 			agentID = a.getAgentid();
@@ -257,4 +258,26 @@ public class AgentDAO {
 				ex.printStackTrace();
 			}
 		}
+		
+		//Update Reset password
+		public void updatePassword(Agent a) {
+			agentEmailAddress = a.getAgentemail();
+			agentPhoneNo = a.getAgentphoneno();
+			agentPassword = a.getAgentpassword();
+			
+			System.out.println("reset email" + agentEmailAddress);
+			System.out.println("reset phone" + agentPhoneNo);
+			System.out.println("reset pass" + agentPassword);
+
+			try {
+				currentCon = ConnectionManager.getConnection(); // 2. establish connection
+				String query = "update agent set agentpassword='"+agentPassword+"' WHERE agentemail='"+agentEmailAddress+"'OR AGENTPHONENO='" +agentPhoneNo + "'";
+				stmt = currentCon.createStatement(); // 3. create statement
+				stmt.executeUpdate(query);
+
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+		}
+		
 }
