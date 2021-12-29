@@ -73,11 +73,19 @@ public class OrderDAO {
 	public String addOrder(Order bean) {
 		// get the date
 		orderdate = bean.getOrderdate();
+	    
+
 
 		// convert java date to sql date
 		java.sql.Date odate = new java.sql.Date(orderdate.getTime());
-
-		generateUniqueid("select concat(left(max(orderid),5),right(max(orderid),1) +1) from orders");
+		//
+		if("select max(orderid) from orders;".length()<7)
+			generateUniqueid("select concat(left(max(orderid),5),right(max(orderid),1) +1) from orders");
+		
+		else
+			generateUniqueid("select concat(left(max(orderid),5),right(max(orderid),2) +1) from orders");
+		
+		
 		orderid = getValue;
 		System.out.println("Orderid is " + orderid);
 		agentid = bean.getAgentid();
@@ -110,8 +118,14 @@ public class OrderDAO {
 
 		// convert java date to sql date
 		java.sql.Date pdate = new java.sql.Date(paymentdate.getTime());
+		//PAYMENT
+		if("select max(payment) from payment;".length()<9)
+			generateUniqueid("select concat(left(max(paymentid),7),right(max(paymentid),1) +1) from payment");
+		
+		else
+			generateUniqueid("select concat(left(max(paymentid),7),right(max(paymentid),2) +1) from payment");
 
-		generateUniqueid("select concat(left(max(paymentid),7),right(max(paymentid),1) +1) from payment");
+			
 		paymentid = getValue;
 		orderid = bean.getOrderid();
 
