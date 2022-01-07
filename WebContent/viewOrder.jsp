@@ -170,10 +170,7 @@
 						</div>
 					</div>
 				</div>
-				<span style="color: red;" id="success">${success} </span> <a
-									href="#!" class="text-reset"></a>
-				
-				<div
+			<div>
 				
 							class="alert alert-success alert-dismissible fade show mt-3 col-sm-4 ml-4"
 							id="notice" style="display: none;">
