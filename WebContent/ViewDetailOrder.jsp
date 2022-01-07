@@ -235,12 +235,12 @@
 
 								<c:forEach items="${roList}" var="ro">
 									<tr>
-										<td><c:out value="${ro.productName}" /></td>
-										<td>RM <c:out value="${ro.productPrice}" />0
+										<td><c:out value="${ro.productname}" /></td>
+										<td>RM <c:out value="${ro.productprice}" />0
 										</td>
-										<td><c:out value="${ro.productQuantity}" /></td>
+										<td><c:out value="${ro.productquantity}" /></td>
 										<td><c:set var="totalprice"
-												value="${ro.productPrice*ro.productQuantity}" />
+												value="${ro.productprice*ro.productquantity}" />
 										 	<c:out value="${totalprice}" />0</td>   
 
 									</tr>
