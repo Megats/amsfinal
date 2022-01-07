@@ -323,6 +323,13 @@ tr:nth-child(even) {
 			</footer>
 		</div>
 	</div>
+	<c:choose>
+						<c:when test="${success.equals('success')}">
+							<script>
+                            alert("Login Success");
+							 </script>
+						</c:when>
+					</c:choose>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>

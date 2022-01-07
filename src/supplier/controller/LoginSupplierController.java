@@ -49,7 +49,8 @@ public class LoginSupplierController extends HttpServlet {
 				session.setAttribute("sessionPosition", supply.getSupplierPosition());
 				session.setAttribute("currentSessionUser",supply);
 				request.setAttribute("ag", SupplierDAO.getSupplierBySupplierID(supply.getSupplierID()));   //to retrieve user info
-				request.setAttribute("od", OrderDAO.getAllOrderAgent());        
+				request.setAttribute("od", OrderDAO.getAllOrderAgent()); 
+		        request.setAttribute("success", "success");
 				RequestDispatcher view = request.getRequestDispatcher("viewOrderSupplier.jsp");
 		        view.forward(request, response);	
 			}
