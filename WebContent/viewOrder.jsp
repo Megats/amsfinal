@@ -170,20 +170,6 @@
 						</div>
 					</div>
 				</div>
-			<div>
-				
-							class="alert alert-success alert-dismissible fade show mt-3 col-sm-4 ml-4"
-							id="notice" style="display: none;">
-							<strong>Success!</strong> Status has been successfully updated.
-							<button type="button" class="close" data-dismiss="alert">&times;</button>
-						</div>
-				<c:choose>
-						<c:when test="${success.equals('success')}">
-							<script>
-                            alert("Login Success");
-							 </script>
-						</c:when>
-					</c:choose>
 			</main>
 			<footer class="py-4 bg-light mt-auto">
 				<div class="container-fluid px-4">
@@ -200,6 +186,13 @@
 			</footer>
 		</div>
 	</div>
+	<c:choose>
+						<c:when test="${success.equals('success')}">
+							<script>
+                            alert("Login Success");
+							 </script>
+						</c:when>
+					</c:choose>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>
@@ -211,6 +204,6 @@
 	<script src="assets/demo/chart-bar-demo.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
 		crossorigin="anonymous"></script>
-	<script src="js/datatables-simple-demo.js"></scrip
+	<script src="js/datatables-simple-demo.js"></script>
 </body>
 </html>
