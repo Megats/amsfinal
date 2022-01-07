@@ -49,6 +49,7 @@ public class LoginController extends HttpServlet {
 				session.setAttribute("currentSessionUser",agent);
 				request.setAttribute("ag", AgentDAO.getAgentByid(agent.getAgentid()));   //to retrieve user info
 		        request.setAttribute("od", OrderDAO.getAllOrdered(agent.getAgentid()));
+		        request.setAttribute("success", "success");
 				RequestDispatcher view = request.getRequestDispatcher("viewOrder.jsp");
 		        view.forward(request, response);		
 			}
@@ -57,7 +58,8 @@ public class LoginController extends HttpServlet {
 			{
 				
 				System.out.println("Incorrect id or password");
-				request.setAttribute("success", "Invalid username or password");
+				request.setAttribute("failed", "Invalid username or password");
+
 				RequestDispatcher view = request.getRequestDispatcher("login.jsp");
 				view.forward(request, response);	
 			}		
