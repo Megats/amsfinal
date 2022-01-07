@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cart.dao.CartDAO;
 import order.dao.*;
 import order.model.*;
 import returnorder.dao.ReturnOrderDAO;
@@ -41,7 +42,7 @@ public class UpdateOrderController extends HttpServlet {
 		
 		request.setAttribute("od", OrderDAO.getAllOrderAgent());  
 		request.setAttribute("success", "Update success");
-		request.setAttribute("roList", ReturnOrderDAO.getReturnOrderByOrderID(id));
+		request.setAttribute("roList", CartDAO.getOrderById(id));
 		request.setAttribute("od", OrderDAO.getAllOrder(id));
 		RequestDispatcher view = request.getRequestDispatcher("ViewDetailOrder.jsp");
         view.forward(request, response);	
