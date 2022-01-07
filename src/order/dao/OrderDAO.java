@@ -239,6 +239,7 @@ public class OrderDAO {
 			ps.setString(1, orderstatus);
 			ps.setString(2, id);
 			ps.executeUpdate();
+		    System.out.println(id);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
