@@ -231,7 +231,7 @@ public class OrderDAO {
 	// update data
 	public void update(Order bean) {
 		String id = bean.getOrderid();
-		orderstatus = bean.getOrderstatus();
+		String orderstatus = bean.getOrderstatus();
 
 		try {
 			con = ConnectionManager.getConnection(); // 2. establish connection
