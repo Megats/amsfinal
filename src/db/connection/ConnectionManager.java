@@ -7,9 +7,9 @@ import java.sql.SQLException;
 public class ConnectionManager {
 	static Connection con;
 	private static final String DB_DRIVER = "com.mysql.jdbc.Driver";
-	private static final String DB_CONNECTION = "jdbc:mysql://us-cdbr-east-04.cleardb.com:3306/heroku_5e9f153ed6f0b20";
-	private static final String DB_USER = "b45c552be3803d";
-	private static final String DB_PASSWORD = "4fa79fab";
+	private static final String DB_CONNECTION = "jdbc:mysql://us-cdbr-east-05.cleardb.net:3306/heroku_c8e7bb0380bec6d";
+	private static final String DB_USER = "bc9d7cd553bc3e";
+	private static final String DB_PASSWORD = "04fae99b";
 
 	public static Connection getConnection() {
 		

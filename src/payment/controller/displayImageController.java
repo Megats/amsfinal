@@ -48,7 +48,7 @@ public class displayImageController extends HttpServlet {
 			// loading drivers for mysql
 			 Class.forName("com.mysql.jdbc.Driver");
              Connection con = DriverManager.getConnection(
-            			"jdbc:mysql://us-cdbr-east-04.cleardb.com:3306/heroku_5e9f153ed6f0b20", "b45c552be3803d", "4fa79fab");
+            			"jdbc:mysql://us-cdbr-east05.cleardb.net:3306/heroku_c8e7bb0380bec6d?", "bc9d7cd553bc3e", "04fae99b");
 
 
             String sql = "select paymentimage from payment where paymentid=?"; //here pass that id in query to get particular image 
